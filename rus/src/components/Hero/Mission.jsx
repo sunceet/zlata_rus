@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import bgHero from "@/assets/bg-green.svg";
 import bear from "@/assets/bear.svg";
-import vector from "@/assets/Vector.svg";
+import bgHero from "@/assets/bg-green.svg";
 import check from "@/assets/check.svg";
-import leaf from "@/assets/leaf.svg";
 import key from "@/assets/key.svg";
+import leaf from "@/assets/leaf.svg";
+import vector from "@/assets/Vector.svg";
+import { useEffect, useRef } from "react";
 import AdvantageCard from "./AdvantageCard";
 
 const Mission = () => {
@@ -53,17 +53,17 @@ const Mission = () => {
 
       {/* Текстовый блок (выровнен по левому краю) */}
       <div className="pl-[170px] relative z-10">
-        <h1 className="text-[20px] font-bold uppercase font-[Lato] tracking-wide text-[#D7B56D]">
+        <h1 className="text-[20px] font-bold uppercase font-lato tracking-wide text-[#D7B56D]">
           наша миссия
         </h1>
 
         <h2 className="text-[40px] mt-3">
-          <span className="font-bold font-[Lato] uppercase tracking-wide bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
+          <span className="font-bold font-lato uppercase tracking-wide bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
             КАЧЕСТВО АЛТАЯ – НА ВЕСЬ МИР
           </span>
         </h2>
 
-        <h3 className="w-[800px] text-[20px] mt-3 font-[Lato] font-normal text-[#D7B56D] leading-relaxed">
+        <h3 className="w-[800px] text-[20px] mt-3 font-lato font-normal text-[#D7B56D] leading-relaxed">
           Алтайский край – это сокровищница России. Наша главная задача –
           создать уникальный продукт премиум-класса, который станет эталоном
           качества. Чтобы, глядя на бутылку "Злата Русь" на полке в любом уголке
@@ -71,7 +71,7 @@ const Mission = () => {
           наша земля.
         </h3>
 
-        <h3 className="w-[800px] text-[20px] mt-4 font-[Lato] font-normal text-[#D7B56D] leading-relaxed">
+        <h3 className="w-[800px] text-[20px] mt-4 font-lato font-normal text-[#D7B56D] leading-relaxed">
           Наше масло – это посол Алтая, его силы и чистоты. Мы активно развиваем
           экспорт, чтобы делиться этим русским качеством с миром. И наш логотип
           – голова медведя – выбран не случайно. Это символ мощи, надежности и
@@ -85,7 +85,7 @@ const Mission = () => {
           <img src={vector} alt="Орнамент" className="w-[1520px] h-[34px]" />
         </div>
 
-        <h2 className="text-[40px] font-[Lato] font-bold uppercase tracking-wide bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent mt-7 text-center">
+        <h2 className="text-[40px] font-lato font-bold uppercase tracking-wide bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent mt-7 text-center">
           НАШИ ПРЕИМУЩЕСТВА
         </h2>
 

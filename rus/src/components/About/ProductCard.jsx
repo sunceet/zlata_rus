@@ -1,4 +1,3 @@
-import React from "react";
 
 const ProductCard = ({ title, bg, oil, points }) => (
   <div className="w-[500px] h-[538px] bg-white border border-[#D7B56D] rounded-[42px] relative overflow-hidden mx-5 flex-shrink-0">
@@ -23,11 +22,11 @@ const ProductCard = ({ title, bg, oil, points }) => (
 
     {/* тексты */}
     <div className="absolute left-9 top-3 flex flex-col h-full justify-between z-20">
-      <h3 className="w-[300px] text-[27px] mt-[19px] font-[Lato] font-bold text-[#1C3B3E] uppercase">
+      <h3 className="w-[300px] text-[27px] mt-[19px] font-lato font-bold text-[#1C3B3E] uppercase">
         {title}
       </h3>
 
-      <ul className="text-[13.5px] text-[#1C3B3E] font-normal font-[Lato]">
+      <ul className="text-[13.5px] text-[#1C3B3E] font-normal font-lato">
         {points.map((p, j) => (
           <li key={j} className="py-[3.75px]">
             {p}
@@ -36,7 +35,7 @@ const ProductCard = ({ title, bg, oil, points }) => (
       </ul>
 
       <button
-        className={`font-[Lato] bg-gradient-to-r from-[#7C622B] to-[#FFD170] 
+        className={`font-lato bg-gradient-to-r from-[#7C622B] to-[#FFD170] 
           text-black rounded-full font-semibold uppercase hover:opacity-90 transition
           ${
             title.includes("мука")

@@ -1,11 +1,10 @@
-import React from "react";
 import bgGreen from "@/assets/bg-green.svg";
-import vector from "@/assets/Vector.svg";
 import check from "@/assets/check.svg";
-import leaf from "@/assets/leaf.svg";
 import key from "@/assets/key.svg";
-import ProductCarousel from "./ProductCarousel";
+import leaf from "@/assets/leaf.svg";
+import vector from "@/assets/Vector.svg";
 import AdvantageCard from "../Hero/AdvantageCard";
+import ProductCarousel from "./ProductCarousel";
 
 const advantages = [
   {
@@ -52,7 +51,7 @@ const AdvantageSection = () => (
 
       {/* Заголовок */}
       <h2
-        className="mt-12 text-[40px] font-[Lato] font-bold uppercase 
+        className="mt-12 text-[40px] font-lato font-bold uppercase 
                  bg-gradient-to-r from-[#7C622B] to-[#FFD170] 
                  bg-clip-text text-transparent tracking-wide text-center"
       >

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // --- ASSETS ---
 import about from "@/assets/about.png"; // 1920x540
@@ -10,12 +10,12 @@ import vector from "@/assets/Vector.svg";
 import vector2 from "@/assets/vector2.svg";
 
 // Products
+import flourLinen from "@/assets/flour-linen (2).png";
+import flourSesame from "@/assets/flour-sesame (2).png";
 import oilLinen from "@/assets/oil-linen.png";
 import oilMustard from "@/assets/oil-mustard.png";
 import oilSesame from "@/assets/oil-sesame.png";
 import oilSunflower from "@/assets/oil-sunflower.png";
-import flourLinen from "@/assets/flour-linen (2).png";
-import flourSesame from "@/assets/flour-sesame (2).png";
 
 // Вспомогательно: для второго блока — делим твои points на ОПИСАНИЕ и ПОЛЬЗУ (сохраняя текст)
 function splitPointsToDescBenefit(points = []) {
@@ -65,7 +65,7 @@ function FlipCard({
           <div
             className={
               titleClass ??
-              "font-bold text-[24px] font-[Lato] uppercase text-center px-2 text-[#1C3B3E]"
+              "font-bold text-[24px] font-lato uppercase text-center px-2 text-[#1C3B3E]"
             }
           >
             {title}
@@ -80,7 +80,7 @@ function FlipCard({
           {/* Режим 1: список поинтов (блок 1) */}
           {backMode === "list" ? (
             <ul
-              className="w-[80%] mx-auto list-none font-[Lato] text-[20px] font-[350px] flex flex-col items-start justify-center gap-2"
+              className="w-[80%] mx-auto list-none font-lato text-[20px] font-[350px] flex flex-col items-start justify-center gap-2"
               style={{ color: backTextColor }}
             >
               {points?.map((p, i) => (
@@ -92,21 +92,21 @@ function FlipCard({
             </ul>
           ) : (
             // Режим 2: ОПИСАНИЕ -> текст; ПОЛЬЗА -> текст (блок 2)
-            <div className="w-[85%] mx-auto font-[Lato]">
-              <h4 className="font-bold text-[20px] font-[Lato] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
+            <div className="w-[85%] mx-auto font-lato">
+              <h4 className="font-bold text-[20px] font-lato bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
                 ОПИСАНИЕ
               </h4>
               <p
-                className="text-[16px] font-[350px] font-[Lato] leading-7 mb-4"
+                className="text-[16px] font-[350px] font-lato leading-7 mb-4"
                 style={{ color: backTextColor }}
               >
                 {descText}
               </p>
-              <h4 className="font-bold text-[20px] bg-gradient-to-r font-[Lato] from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
+              <h4 className="font-bold text-[20px] bg-gradient-to-r font-lato from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
                 ПОЛЬЗА
               </h4>
               <p
-                className="text-[16px] font-[350px] font-[Lato] leading-7"
+                className="text-[16px] font-[350px] font-lato leading-7"
                 style={{ color: backTextColor }}
               >
                 {benefitText}
@@ -264,7 +264,7 @@ export default function ApplicationPage() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative text-center z-10">
-          <h1 className="text-white font-bold text-[60px] font-[Lato] ">
+          <h1 className="text-white font-bold text-[60px] font-lato ">
             ПРИМЕНЕНИЕ
           </h1>
           <p className="text-white font-normal text-[24px] text ">
@@ -282,10 +282,10 @@ export default function ApplicationPage() {
         />
         {/* TEXT */}
         <div className="relative z-10 max-w-[1600px] pt-[70px] pl-[160px] pr-[160px]">
-          <h2 className="font-bold font-[Lato] text-[24px] text-[#D7B56D]">
+          <h2 className="font-bold font-lato text-[24px] text-[#D7B56D]">
             НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ ПЕРЕВЕРНУТЬ
           </h2>
-          <p className="mt-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-[48px] font-[Lato] font-bold">
+          <p className="mt-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-[48px] font-lato font-bold">
             ПРИМЕНЕНИЕ НАШЕЙ ПРОДУКЦИИ
           </p>
         </div>
@@ -341,7 +341,7 @@ export default function ApplicationPage() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative text-center w-full z-10 max-w-[1200px]">
-          <h2 className="text-white font-bold text-[60px] font-[Lato] ">
+          <h2 className="text-white font-bold text-[60px] font-lato ">
             ПОЛЬЗА И ОПИСАНИЕ ПРОДУКТОВ
           </h2>
           <p className="text-white font-normal text-[24px] text-center whitespace-nowrap">
@@ -360,10 +360,10 @@ export default function ApplicationPage() {
         />
         {/* TEXT */}
         <div className="relative z-10 max-w-[1600px] pt-[70px] pl-[160px] pr-[160px]">
-          <h3 className="font-bold font-[Lato] text-[24px] text-[#1C3B3E]">
+          <h3 className="font-bold font-lato text-[24px] text-[#1C3B3E]">
             НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ УЗНАТЬ БОЛЬШЕ
           </h3>
-          <p className="mt-2 text-[#1C3B3E] text-[36px] font-[Lato] font-bold">
+          <p className="mt-2 text-[#1C3B3E] text-[36px] font-lato font-bold">
             ПОЛЕЗНЫЕ СВОЙСТВА И ВКУС
           </p>
         </div>
@@ -381,7 +381,7 @@ export default function ApplicationPage() {
                   frontBg={greenBg}
                   backBg={greenBg}
                   // ЗАКРЫТАЯ карточка — градиентный золотой текст под фото:
-                  titleClass="font-bold text-[24px] font-[Lato] uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
+                  titleClass="font-bold text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
                   // ОТКРЫТАЯ карточка — цвет текста #D7B56D, структура: ОПИСАНИЕ → ПОЛЬЗА
                   backMode="descBenefit"
                   backTextColor="#D7B56D"
@@ -402,7 +402,7 @@ export default function ApplicationPage() {
                   title={c.title}
                   frontBg={greenBg}
                   backBg={greenBg}
-                  titleClass="font-bold text-[24px] font-[Lato] uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
+                  titleClass="font-bold text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
                   backMode="descBenefit"
                   backTextColor="#D7B56D"
                   descText={desc}

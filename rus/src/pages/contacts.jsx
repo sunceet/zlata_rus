@@ -1,11 +1,10 @@
 // src/pages/Contacts.jsx
-import React from "react";
 
 // --- ASSETS ---
 import bgYellow from "@/assets/bg-yellow.svg";
-import mapPin from "@/assets/map_pin.png";
 import building from "@/assets/Building.svg";
 import mail from "@/assets/mail.png";
+import mapPin from "@/assets/map_pin.png";
 import phone from "@/assets/Phone.svg";
 import vector2 from "@/assets/vector2.svg"; // ✅ импорт орнамента
 
@@ -44,10 +43,10 @@ export default function Contacts() {
     >
       {/* Заголовки */}
       <div className="relative z-10 pt-[84px] pl-[160px] pr-[20px]">
-        <h2 className="font-[Lato] font-bold text-[24px] text-[#1C3B3E]">
+        <h2 className="font-lato font-bold text-[24px] text-[#1C3B3E]">
           ИНФОРМАЦИОННЫЙ РАЗДЕЛ
         </h2>
-        <p className="-mt-1 font-[Lato] font-extrabold text-[48px] text-[#1C3B3E]">
+        <p className="-mt-1 font-lato font-bold text-[48px] text-[#1C3B3E]">
           НАШИ КОНТАКТЫ
         </p>
       </div>
@@ -58,7 +57,7 @@ export default function Contacts() {
           {cards.map((c, i) => (
             <div
               key={i}
-              className="h-[266px] rounded-[24px] border border-[#1C3B3E50]
+              className="h-[266px] rounded-[24px] border border-[#1C3B3E90]
                          bg-[#EDD196]/5 backdrop-blur-sm
                          p-6 flex flex-col"
             >
@@ -68,12 +67,12 @@ export default function Contacts() {
                   alt=""
                   className="w-[56px] mt-3 ml-2 h-[56px] object-contain"
                 />
-                <div className="font-[Lato] ml-4 mt-3 font-bold text-[35px] text-[#1C3B3E]">
+                <div className="font-lato ml-4 mt-3 font-bold text-[35px] text-[#1C3B3E]">
                   {c.title}
                 </div>
               </div>
 
-              <div className="ml-23 w-[490px] mt-4 font-[Lato] text-[22px] text-[#1C3B3E]">
+              <div className="ml-23 w-[490px] mt-4 font-lato text-[22px] text-[#1C3B3E]">
                 {c.text}
               </div>
             </div>

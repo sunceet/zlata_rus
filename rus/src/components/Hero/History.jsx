@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
 import bgYellow from "@/assets/bg-yellow.svg";
 import vector from "@/assets/Vector2.svg";
+import { useEffect, useRef } from "react";
 import HistoryCarousel from "./HistoryCarousel";
 
 const History = () => {
@@ -44,17 +44,17 @@ const History = () => {
       style={{ backgroundImage: `url(${bgYellow})` }}
     >
       <div className="relative z-10">
-        <h1 className="ml-[170px] font-[Lato] font-bold text-[20px] uppercase tracking-wide">
+        <h1 className="ml-[170px] font-lato font-bold text-[20px] uppercase tracking-wide">
           ИСТОРИЯ БРЕНДА
         </h1>
 
         <h2 className="ml-[170px] mt-3 uppercase">
-          <span className="text-[40px] font-[Lato] font-bold uppercase tracking-wide bg-gradient-to-r from-[#1C3B3E] to-[#255D62] bg-clip-text text-transparent">
+          <span className="text-[40px] font-lato font-bold uppercase tracking-wide bg-gradient-to-r from-[#1C3B3E] to-[#255D62] bg-clip-text text-transparent">
             Приветствую вас!
           </span>
         </h2>
 
-        <h3 className="w-[995px] font-[Lato] font-normal text-[20px] mt-3 ml-[170px] leading-relaxed">
+        <h3 className="w-[995px] font-lato font-normal text-[20px] mt-3 ml-[170px] leading-relaxed">
           Меня зовут Руслан, я основатель натуральных масел "Злата Русь". Хочу
           поделиться с вами историей, которая началась с простого желания – быть
           здоровым, и превратилась в нашу общую миссию. Как всё начиналось? С

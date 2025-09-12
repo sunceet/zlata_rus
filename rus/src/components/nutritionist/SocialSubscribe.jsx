@@ -1,13 +1,12 @@
 // src/pages/SocialSubscribe.jsx
-import React from "react";
 
 // --- ASSETS ---
 import bgGreen from "@/assets/bg-green.svg";
-import vector from "@/assets/Vector.svg";
 import heart from "@/assets/heart.svg"; // «сердечко с надписью» — использую heart.svg
-import woman from "@/assets/woman.png";
-import telegram from "@/assets/telegram.png";
 import instagram from "@/assets/instagram.png";
+import telegram from "@/assets/telegram.png";
+import vector from "@/assets/Vector.svg";
+import woman from "@/assets/woman.png";
 
 export default function SocialSubscribe() {
   return (
@@ -24,7 +23,7 @@ export default function SocialSubscribe() {
         <div className="rounded-[28px] border border-[#D7B56D] bg-[#0F3A3E]/60 shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
           {/* Заголовок */}
           <h1
-            className="text-center py-8 text-[clamp(28px,3.5vw,56px)] font-[Lato] font-extrabold
+            className="text-center py-8 text-[clamp(28px,3.5vw,56px)] font-lato font-extrabold
                          bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
           >
             Подписывайся на соцсети
@@ -48,7 +47,7 @@ export default function SocialSubscribe() {
               />
               <div className="flex-1">
                 <div
-                  className="text-[40px] font-[Lato] font-bold
+                  className="text-[40px] font-lato font-bold
                                 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
                 >
                   Елена Селюкова, нутрициолог
@@ -70,7 +69,7 @@ export default function SocialSubscribe() {
                       alt=""
                       className="absolute left-4 w-[35px] mb-0.5 h-[35px]"
                     />
-                    <span className="font-[Lato] ml-3 text-[24px] font-semibold">
+                    <span className="font-lato ml-3 text-[24px] font-semibold">
                       Telegram
                     </span>
                   </a>
@@ -90,7 +89,7 @@ export default function SocialSubscribe() {
                       alt=""
                       className="absolute left-4 w-[32px] h-[32px]"
                     />
-                    <span className="font-[Lato] ml-7 text-[24px] font-semibold">
+                    <span className="font-lato ml-7 text-[24px] font-semibold">
                       Instagram
                     </span>
                   </a>

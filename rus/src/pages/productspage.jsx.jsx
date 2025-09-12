@@ -1,15 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-import bgYellow from "@/assets/bg-yellow.svg";
 import bgGreen from "@/assets/bg-green.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
 
+import flourLinen from "@/assets/flour-linen_carousel.png";
+import flourSesame from "@/assets/flour-sesame-carousel.png";
 import oilLinen from "@/assets/oil-linen.png";
 import oilMustard from "@/assets/oil-mustard.png";
 import oilSesame from "@/assets/oil-sesame.png";
 import oilSunflower from "@/assets/oil-sunflower.png";
-import flourLinen from "@/assets/flour-linen_carousel.png";
-import flourSesame from "@/assets/flour-sesame-carousel.png";
 import vector from "@/assets/Vector2.svg";
 
 // список продуктов со slug
@@ -69,7 +68,7 @@ function ProductCard({ name, image, type }) {
       <div className="pt-4 px-5 text-center relative z-[1]">
         <h3
           className="
-            text-[36px] font-[Lato] font-semibold
+            text-[36px] font-lato font-semibold
             bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent
             transition-[filter] duration-300
             group-hover:brightness-110
@@ -138,11 +137,11 @@ export default function ProductsPage() {
       className="relative h-[1520px] bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${bgYellow})` }}
     >
-      <div className="absolute left-[160px] top-[70px] text-[24px] font-bold font-[Lato] text-[#1C3B3E]">
+      <div className="absolute left-[160px] top-[70px] text-[24px] font-bold font-lato text-[#1C3B3E]">
         НАЖМИТЕ НА КАРТОЧКУ С ПРОДУКЦИЕЙ, ЧТОБЫ УЗНАТЬ ПОДРОБНУЮ ИНФОРМАЦИЮ
       </div>
 
-      <h1 className="pt-30 pl-[160px] text-[48px] font-[Lato] text-[#1C3B3E] font-bold">
+      <h1 className="pt-30 pl-[160px] text-[48px] font-lato text-[#1C3B3E] font-bold">
         ПРОДУКЦИЯ
       </h1>
 

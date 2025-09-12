@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="h-[168px] w-[1px] bg-[#D7B56D] ml-[250px]"></div>
 
           {/* Текстовые ссылки */}
-          <div className="flex flex-col gap-[15px] ml-[30px] text-[16px] font-weight-[350px] tracking-wide">
+          <div className="flex flex-col gap-[15px] ml-[30px] font-lato text-[16px] font-weight-[350px] tracking-wide">
             <a
               href="#"
               className="text-[#FFFFFF] no-underline hover:text-[#D7B56D] visited:text-[#FFFFFF] active:text-[#FFFFFF]"
@@ -48,7 +48,7 @@ const Footer = () => {
       </div>
 
       <div className="h-[45px] bg-[#183336] flex items-center justify-center">
-        <p className="text-[#767676] text-[14px] tracking-wide">
+        <p className="text-[#767676] text-[14px] font-lato tracking-wide">
           © 2025 ZLATA RUS — ВСЕ ПРАВА ЗАЩИЩЕНЫ.
         </p>
       </div>

@@ -1,15 +1,15 @@
 // src/pages/ProductDetailPage.jsx
-import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+import arrowFor from "@/assets/arrow_for.png";
+import bgYellow from "@/assets/bg-yellow.svg";
+import flourLinen from "@/assets/flour-linen (2).png";
+import flourSesame from "@/assets/flour-sesame (2).png";
 import oilLinen from "@/assets/oil-linen.png";
 import oilMustard from "@/assets/oil-mustard.png";
 import oilSesame from "@/assets/oil-sesame.png";
 import oilSunflower from "@/assets/oil-sunflower.png";
-import flourLinen from "@/assets/flour-linen (2).png";
-import flourSesame from "@/assets/flour-sesame (2).png";
-import bgYellow from "@/assets/bg-yellow.svg";
-import arrowFor from "@/assets/arrow_for.png";
 import vector from "@/assets/Vector2.svg";
 
 const productsData = [
@@ -215,7 +215,7 @@ function AccordionSection({ title, open, onToggle, children }) {
         onClick={onToggle}
         className="group w-full h-[120px] px-6 flex items-center justify-between text-left"
       >
-        <h2 className="ml-10 text-[28px] text-[#D7B56D] font-[Lato] font-semibold">
+        <h2 className="ml-10 text-[28px] text-[#D7B56D] font-lato font-semibold">
           {title}
         </h2>
         <ToggleIcon open={open} />
@@ -284,7 +284,7 @@ export default function ProductDetailPage({ idOverride }) {
 
           {/* Внешний бордер */}
           <div className="mb-[32px] bg-[#1C3B3E] border border-[#D7B56D] rounded-[32px] p-10 text-[#F7E8B0]">
-            <h1 className="text-[48px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-[Lato] font-bold mb-8">
+            <h1 className="text-[48px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-lato font-bold mb-8">
               {product.name}
             </h1>
 
@@ -321,7 +321,7 @@ export default function ProductDetailPage({ idOverride }) {
                   </div>
                 )}
 
-                <p className="text-[22px] font-[Lato] font-light text-[#D7B56D] leading-relaxed">
+                <p className="text-[22px] font-lato font-light text-[#D7B56D] leading-relaxed">
                   {product.description}
                 </p>
               </div>

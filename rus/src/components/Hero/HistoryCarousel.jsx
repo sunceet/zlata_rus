@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import ruslan from "@/assets/ruslan.svg";
 import heart from "@/assets/heart.svg";
+import ruslan from "@/assets/ruslan.svg";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
@@ -70,7 +70,7 @@ const HistoryCarousel = () => {
               className="w-[1535px] h-[700px] flex-shrink-0 rounded-[32px] bg-[#1C3B3E] flex flex-col items-center mr-[40px]"
             >
               {/* Заголовок */}
-              <h2 className="mt-[35px] text-[55px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] font-[Lato] font-bold bg-clip-text text-transparent">
+              <h2 className="mt-[35px] text-[55px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] font-lato font-bold bg-clip-text text-transparent">
                 {slide.title}
               </h2>
 
@@ -84,10 +84,10 @@ const HistoryCarousel = () => {
                       className="w-[160px] ml-[5px] mt-[5px] h-[160px] object-cover rounded-full"
                     />
                     <div className="ml-[20px] mt-2 flex flex-col justify-start">
-                      <h3 className="text-[55px] font-[Lato] font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
+                      <h3 className="text-[55px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
                         Руслан Снигур
                       </h3>
-                      <p className="text-[20px] font-[Lato] font-normal mt-2.5 text-[#EDD196]">
+                      <p className="text-[20px] font-lato font-normal mt-2.5 text-[#EDD196]">
                         Основатель "Злата Русь"
                       </p>
                     </div>
@@ -101,7 +101,7 @@ const HistoryCarousel = () => {
 
                 <div className="w-[1320px] mt-[15px] border-t border-[#EDD19650] mx-auto"></div>
                 <div className="flex-1 overflow-y-auto mt-[17px]">
-                  <p className="text-[20px] w-[1300px] font-[Lato] font-normal text-[#EDD196]">
+                  <p className="text-[20px] w-[1300px] font-lato font-normal text-[#EDD196]">
                     {slide.text}
                   </p>
                 </div>
@@ -113,7 +113,7 @@ const HistoryCarousel = () => {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`px-[20px] py-[10px] rounded-full font-[Lato] text-[20px] ${
+                    className={`px-[20px] py-[10px] rounded-full font-lato text-[20px] ${
                       i === current
                         ? "bg-gradient-to-r from-[#7C622B] to-[#FFD170] text-white"
                         : "bg-white text-[#00000070]"

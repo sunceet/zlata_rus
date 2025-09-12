@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Header />
       <main
-        className="pt-[225px] bg-cover bg-center"
+        className="font-lato pt-[225px] bg-cover bg-center"
         style={{ backgroundImage: `url(${bgGreen})` }}
       >
         <Routes>

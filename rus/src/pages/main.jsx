@@ -1,12 +1,11 @@
 // src/pages/About.jsx
-import React from "react";
 import bgGreen from "@/assets/bg-green.svg";
-import ruslanImg from "@/assets/ruslan.png";
-import heartSvg from "@/assets/heart.svg";
-import vector from "@/assets/Vector.svg";
 import bgYellow from "@/assets/bg-yellow.svg";
-import ProductsCarousel from "../components/ProductsCarousel";
+import heartSvg from "@/assets/heart.svg";
+import ruslanImg from "@/assets/ruslan.png";
+import vector from "@/assets/Vector.svg";
 import zrVideo from "@/assets/zr-video.mp4"; // ✅ добавил видео
+import ProductsCarousel from "@/components/ProductsCarousel";
 
 export default function About() {
   return (
@@ -27,7 +26,7 @@ export default function About() {
         <div className="absolute inset-0 bg-black/30" />
 
         {/* Текст поверх видео */}
-        <h1 className="relative z-10 text-[64px] font-[Lato] font-bold mb-4">
+        <h1 className="relative z-10 text-[64px] font-lato mb-4">
           НАТУРАЛЬНОЕ СЫРЬЕ С АЛТАЯ
         </h1>
       </section>
@@ -53,10 +52,10 @@ export default function About() {
 
           {/* Правая часть (текст и кнопки) */}
           <div className="mt-[150px] ml-[60px]">
-            <h2 className="text-[56px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-[Lato] font-bold uppercase">
+            <h2 className="text-[56px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-lato font-bold uppercase">
               ДОБРО ПОЖАЛОВАТЬ В ЗЛАТА РУСЬ!
             </h2>
-            <p className="text-[32px] text-[#D7B56D] font-normal font-[Lato] mt-2">
+            <p className="text-[32px] text-[#D7B56D] font-normal font-lato mt-2">
               В мир настоящего вкуса, силы природы и заботы о себе!
             </p>
 
@@ -72,7 +71,7 @@ export default function About() {
         </div>
 
         <div className="absolute right-[192px] bottom-[142px] flex items-center gap-[44px]">
-          <p className="w-[489px] h-[76px] text-[#D7B56D] text-[25px] font-[Lato] italic text-right max-w-xs">
+          <p className="w-[489px] h-[76px] text-[#D7B56D] text-[25px] font-lato italic text-right max-w-xs">
             С уважением и любовью, основатель Руслан Снигур
           </p>
           <img
@@ -96,10 +95,10 @@ export default function About() {
         }}
       >
         <div className="mt-[70px] ml-[160px]">
-          <h4 className="text-[24px] font-semibold text-[#19474B] uppercase font-[Lato]">
+          <h4 className="text-[24px] font-semibold text-[#19474B] uppercase font-lato">
             ЧТО МЫ ПРОИЗВОДИМ?
           </h4>
-          <h2 className="mt-2 text-[48px] font-bold  text-[#19474B] uppercase font-[Lato]">
+          <h2 className="mt-2 text-[48px] font-bold  text-[#19474B] uppercase font-lato">
             НАША ПРОДУКЦИЯ
           </h2>
         </div>

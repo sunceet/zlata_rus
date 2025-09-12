@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import logo from "@/assets/logo.svg";
 import logoText from "@/assets/logo-text.svg";
+import logo from "@/assets/logo.svg";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -65,7 +65,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-[#D7B56D] font-[Lato] py-1 px-2 text-[20px] transition-colors duration-300 hover:text-[#FFD170]"
+                className="text-[#D7B56D] font-lato py-1 px-2 text-[20px] transition-colors duration-300 hover:text-[#FFD170]"
                 style={{
                   marginRight: index < navItems.length - 1 ? "50px" : "0",
                 }}

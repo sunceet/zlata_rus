@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 /* === Ассеты === */
-import linen from "@/assets/linen.png";
-import oilLinen from "@/assets/oil-linen.png";
-import sesame from "@/assets/sesame.png";
-import oilSesame from "@/assets/oil-sesame.png";
-import sunflower from "@/assets/sunflower.png";
-import oilSunflower from "@/assets/oil-sunflower.png";
-import mustard from "@/assets/mustard.png";
-import oilMustard from "@/assets/oil-mustard.png";
-import flourSesame from "@/assets/flour-sesame-carousel.png";
-import flourLinen from "@/assets/flour-linen_carousel.png";
 import arrowImg from "@/assets/arrow.png";
+import flourLinen from "@/assets/flour-linen_carousel.png";
+import flourSesame from "@/assets/flour-sesame-carousel.png";
+import linen from "@/assets/linen.png";
 import lupa from "@/assets/lupa.png";
+import mustard from "@/assets/mustard.png";
+import oilLinen from "@/assets/oil-linen.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import sesame from "@/assets/sesame.png";
+import sunflower from "@/assets/sunflower.png";
 
 /* === Данные карточек === */
 export const cards = [
@@ -85,7 +85,7 @@ function Card({ item, isFlour, isSunflower }) {
     >
       <div className="relative mt-3 z-10 h-full p-6 flex">
         <div className="flex-[0_0_60%] pr-4 flex flex-col">
-          <h3 className="text-[24px] leading-none font-bold font-[Lato] text-left text-[#111] uppercase">
+          <h3 className="text-[24px] leading-none font-bold font-lato text-left text-[#111] uppercase">
             {item.title}
           </h3>
 
@@ -93,7 +93,7 @@ function Card({ item, isFlour, isSunflower }) {
             {(item.badges ?? []).map((badge, idx) => (
               <span
                 key={idx}
-                className="inline-flex items-center px-[13px] py-[13px] font-[Lato] font-semibold rounded-[20px] bg-white text-[#111] text-[12px] border border-[#C6C6C6]"
+                className="inline-flex items-center px-[13px] py-[13px] font-lato font-semibold rounded-[20px] bg-white text-[#111] text-[12px] border border-[#C6C6C6]"
               >
                 {badge}
               </span>
@@ -101,7 +101,7 @@ function Card({ item, isFlour, isSunflower }) {
           </div>
 
           <div className="mt-3 w-[400px] min-h-[120px] rounded-[14px] border border-black/10 bg-white p-3 shadow-[0_2px_6px_rgba(16,24,40,0.06)] flex flex-col">
-            <p className="text-[13px] text-left font-[Lato] font-light  leading-[1.5] text-black">
+            <p className="text-[14px] text-left font-lato font-light  leading-[1.5] text-black">
               {item.points[0]}
             </p>
 
@@ -119,7 +119,7 @@ function Card({ item, isFlour, isSunflower }) {
                   draggable={false}
                 />
               </span>
-              <span className="px-1.5 text-[12px] font-semibold font-[Lato] text-[#111] leading-none">
+              <span className="px-1.5 text-[12px] font-semibold font-lato text-[#111] leading-none">
                 Узнать подробнее
               </span>
             </button>

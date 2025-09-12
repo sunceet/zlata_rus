@@ -1,20 +1,20 @@
 // src/pages/History.jsx
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // --- ASSETS (продукты) ---
-import oilLinen from "@/assets/oil-linen.png";
-import oilSesame from "@/assets/oil-sesame.png";
-import oilMustard from "@/assets/oil-mustard.png";
-import oilSunflower from "@/assets/oil-sunflower.png";
 import flourLinen from "@/assets/flour-linen (2).png";
 import flourSesame from "@/assets/flour-sesame (2).png";
+import oilLinen from "@/assets/oil-linen.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
 
 import bgYellow from "@/assets/bg-yellow.svg";
 
 import linenBack from "@/assets/linen.png";
+import mustardBack from "@/assets/mustard (1).png";
 import sesameBack from "@/assets/sesame.png";
 import sunflowerBack from "@/assets/sunflower.png";
-import mustardBack from "@/assets/mustard (1).png";
 
 // Общие размеры
 const CARD_WIDTH = 1535;
@@ -52,7 +52,7 @@ function Carousel({ slides, topPadding = 60 }) {
             className="w-[1535px] h-[700px] flex-shrink-0 rounded-[32px] bg-[#1C3B3E] flex flex-col items-center mr-[40px]"
           >
             {/* Заголовок карточки */}
-            <h2 className="mt-[35px] text-[55px] font-[Lato] font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
+            <h2 className="mt-[35px] text-[55px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
               {slide.title}
             </h2>
 
@@ -94,17 +94,17 @@ function Carousel({ slides, topPadding = 60 }) {
 
               {/* Правая колонка: текст */}
               <div className="flex-1 ml-[40px] flex flex-col">
-                <h3 className="text-[28px] font-[Lato] font-bold text-[#D7B56D]">
+                <h3 className="text-[28px] font-lato font-bold text-[#D7B56D]">
                   {slide.subtitle}
                 </h3>
 
                 {slide.introStrong ? (
-                  <p className="mt-4 text-[20px] text-[#EDD196]">
+                  <p className="mt-4 font-lato text-[20px] text-[#EDD196]">
                     <span className="font-bold">{slide.introStrong}</span>
                     {slide.introRest}
                   </p>
                 ) : (
-                  <p className="mt-4 text-[20px] text-[#EDD196]">
+                  <p className="mt-4 text-[20px] font-lato text-[#EDD196]">
                     {slide.introRest}
                   </p>
                 )}
@@ -112,9 +112,9 @@ function Carousel({ slides, topPadding = 60 }) {
                 <ul className="mt-6 space-y-2">
                   {slide.bullets.map((b, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="mt-2 block w-[8px] h-[8px] rounded-full bg-[#D7B56D]" />
-                      <p className="text-[18px] leading-7 text-[#D7B56D]">
-                        <span className="font-bold">{b.strong}</span>
+                      <span className="mt-2.5 block w-[8px] h-[8px] rounded-full bg-[#D7B56D]" />
+                      <p className="text-[18px] font-lato leading-7 text-[#D7B56D]">
+                        <span className="font-bold ">{b.strong}</span>
                         {b.rest}
                       </p>
                     </li>
@@ -124,7 +124,7 @@ function Carousel({ slides, topPadding = 60 }) {
                 {/* Сноска фиксирована снизу */}
                 <div className="mt-auto">
                   <div className="border-t border-[#EDD19640] w-full mb-4"></div>
-                  <p className="text-[20px] font-bold text-[#D7B56D] ">
+                  <p className="text-[20px] font-lato font-bold text-[#D7B56D] ">
                     {slide.note}
                   </p>
                 </div>
@@ -137,7 +137,7 @@ function Carousel({ slides, topPadding = 60 }) {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`px-[20px] py-[10px] rounded-full font-[Lato] text-[20px] ${
+                  className={`px-[20px] py-[10px] rounded-full font-lato text-[20px] ${
                     i === current
                       ? "bg-gradient-to-r from-[#7C622B] to-[#FFD170] text-white"
                       : "bg-white text-[#00000070]"
@@ -329,7 +329,7 @@ export default function HistoryPage() {
       <div className="pt-[70px]">
         {/* Текст сверху */}
         <div className="pl-[170px] mb-[56px] max-w-[1600px]">
-          <p className="text-[48px] font-[Lato] font-bold text-[#1C3B3E] ">
+          <p className="text-[48px] font-lato font-bold text-[#1C3B3E] ">
             МОИМИ ФАВОРИТАМИ СТАЛИ:
           </p>
         </div>
@@ -339,7 +339,7 @@ export default function HistoryPage() {
 
         {/* Текст между каруселями */}
         <div className="relative z-10 mt-12 mb-8 pl-[170px] max-w-[1600px]">
-          <p className="text-[32px] font-[Lato] font-bold text-[#1C3B3E] ">
+          <p className="text-[32px] font-lato font-bold text-[#1C3B3E] ">
             Помимо масел «Злата Русь» производит муку, что позволяет
             разнообразить здоровый рацион.
           </p>
