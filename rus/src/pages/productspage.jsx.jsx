@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import bgYellow from "../assets/bg-yellow.svg";
-import bgGreen from "../assets/bg-green.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
+import bgGreen from "@/assets/bg-green.svg";
 
-import oilLinen from "../assets/oil-linen.png";
-import oilMustard from "../assets/oil-mustard.png";
-import oilSesame from "../assets/oil-sesame.png";
-import oilSunflower from "../assets/oil-sunflower.png";
-import flourLinen from "../assets/flour-linen_carousel.png";
-import flourSesame from "../assets/flour-sesame-carousel.png";
-import vector from "../assets/Vector2.svg";
+import oilLinen from "@/assets/oil-linen.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import flourLinen from "@/assets/flour-linen_carousel.png";
+import flourSesame from "@/assets/flour-sesame-carousel.png";
+import vector from "@/assets/Vector2.svg";
 
 // список продуктов со slug
 const products = [

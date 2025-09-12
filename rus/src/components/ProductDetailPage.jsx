@@ -2,15 +2,15 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import oilLinen from "../assets/oil-linen.png";
-import oilMustard from "../assets/oil-mustard.png";
-import oilSesame from "../assets/oil-sesame.png";
-import oilSunflower from "../assets/oil-sunflower.png";
-import flourLinen from "../assets/flour-linen (2).png";
-import flourSesame from "../assets/flour-sesame (2).png";
-import bgYellow from "../assets/bg-yellow.svg";
-import arrowFor from "../assets/arrow_for.png";
-import vector from "../assets/Vector2.svg";
+import oilLinen from "@/assets/oil-linen.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import flourLinen from "@/assets/flour-linen (2).png";
+import flourSesame from "@/assets/flour-sesame (2).png";
+import bgYellow from "@/assets/bg-yellow.svg";
+import arrowFor from "@/assets/arrow_for.png";
+import vector from "@/assets/Vector2.svg";
 
 const productsData = [
   {

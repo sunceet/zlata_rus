@@ -1,18 +1,18 @@
-// src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Main from "./pages/main";
-import ProductsPage from "./pages/productspage.jsx";
-import ProductDetailPage from "./components/ProductDetailPage.jsx";
-import ApplicationPage from "./pages/ApplicationPage";
-import Nutritionist from "./pages/nutritionist.jsx";
-import Contacts from "./pages/contacts.jsx";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Main from "@/pages/main";
+import ProductsPage from "@/pages/productspage.jsx";
+import ProductDetailPage from "@/components/ProductDetailPage.jsx";
+import ApplicationPage from "@/pages/ApplicationPage";
+import Nutritionist from "@/pages/nutritionist.jsx";
+import Contacts from "@/pages/contacts.jsx";
+import Advantages from "@/pages/advantages";
+import About from "@/pages/About";
 
-import Advantages from "./pages/advantages";
-import About from "./pages/About";
+import bgGreen from "@/assets/bg-green.svg";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <main
         className="pt-[225px] bg-cover bg-center"
-        style={{ backgroundImage: `url(/src/assets/bg-green.svg)` }}
+        style={{ backgroundImage: `url(${bgGreen})` }}
       >
         <Routes>
           <Route path="/products" element={<ProductsPage />} />

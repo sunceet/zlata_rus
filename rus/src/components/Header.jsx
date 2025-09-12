@@ -1,5 +1,8 @@
-// src/components/Header.jsx
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import logo from "@/assets/logo.svg";
+import logoText from "@/assets/logo-text.svg";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,10 +31,10 @@ const Header = () => {
         ${scrolled ? "h-[90px]" : "h-[160px]"}`}
       >
         <div className="w-full h-full flex items-center justify-center relative">
-          <a href="/" className="block relative w-[220px] h-[110px]">
+          <Link to="/" className="block relative w-[220px] h-[110px]">
             {/* Лого иконка */}
             <img
-              src="/src/assets/logo.svg"
+              src={logo}
               alt="Логотип"
               className={`absolute left-0 top-0 w-[200px] h-[110px] 
               transition-all duration-700 ease-in-out
@@ -40,13 +43,13 @@ const Header = () => {
 
             {/* Лого текстовое */}
             <img
-              src="/src/assets/logo-text.svg"
+              src={logoText}
               alt="Логотип текст"
               className={`absolute left-0 top-0 w-[200px] h-[110px] 
               transition-all duration-700 ease-in-out
               ${scrolled ? "opacity-100 scale-100 " : "opacity-0 scale-90 "}`}
             />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -59,16 +62,16 @@ const Header = () => {
         <div className="w-full h-full flex items-center justify-center">
           <nav className="flex">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-[#D7B56D] font-[Lato] py-1 px-2 text-[20px] transition-colors duration-300 hover:text-[#FFD170]"
                 style={{
                   marginRight: index < navItems.length - 1 ? "50px" : "0",
                 }}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

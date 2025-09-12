@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import bgHero from "../../assets/bg-green.svg";
-import bear from "../../assets/bear.svg";
-import vector from "../../assets/Vector.svg";
-import check from "../../assets/check.svg";
-import leaf from "../../assets/leaf.svg";
-import key from "../../assets/key.svg";
+import bgHero from "@/assets/bg-green.svg";
+import bear from "@/assets/bear.svg";
+import vector from "@/assets/Vector.svg";
+import check from "@/assets/check.svg";
+import leaf from "@/assets/leaf.svg";
+import key from "@/assets/key.svg";
 import AdvantageCard from "./AdvantageCard";
 
 const Mission = () => {

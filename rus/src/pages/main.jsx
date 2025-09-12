@@ -1,12 +1,12 @@
 // src/pages/About.jsx
 import React from "react";
-import bgGreen from "../assets/bg-green.svg";
-import ruslanImg from "../assets/ruslan.png";
-import heartSvg from "../assets/heart.svg";
-import vector from "../assets/Vector.svg";
-import bgYellow from "../assets/bg-yellow.svg";
+import bgGreen from "@/assets/bg-green.svg";
+import ruslanImg from "@/assets/ruslan.png";
+import heartSvg from "@/assets/heart.svg";
+import vector from "@/assets/Vector.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
 import ProductsCarousel from "../components/ProductsCarousel";
-import zrVideo from "../assets/zr-video.mp4"; // ✅ добавил видео
+import zrVideo from "@/assets/zr-video.mp4"; // ✅ добавил видео
 
 export default function About() {
   return (

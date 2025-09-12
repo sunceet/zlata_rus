@@ -2,12 +2,12 @@
 import React from "react";
 
 // --- ASSETS ---
-import bgGreen from "../../assets/bg-green.svg";
-import vector from "../../assets/Vector.svg";
-import heart from "../../assets/heart.svg"; // «сердечко с надписью» — использую heart.svg
-import woman from "../../assets/woman.png";
-import telegram from "../../assets/telegram.png";
-import instagram from "../../assets/instagram.png";
+import bgGreen from "@/assets/bg-green.svg";
+import vector from "@/assets/Vector.svg";
+import heart from "@/assets/heart.svg"; // «сердечко с надписью» — использую heart.svg
+import woman from "@/assets/woman.png";
+import telegram from "@/assets/telegram.png";
+import instagram from "@/assets/instagram.png";
 
 export default function SocialSubscribe() {
   return (

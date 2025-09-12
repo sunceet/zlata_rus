@@ -1,14 +1,14 @@
-import linen from "../../assets/linen.png";
-import oilLinen from "../../assets/oil-linen.png";
-import sesame from "../../assets/sesame.png";
-import oilSesame from "../../assets/oil-sesame.png";
-import sunflower from "../../assets/sunflower.png";
-import oilSunflower from "../../assets/oil-sunflower.png";
-import mustard from "../../assets/mustard.png";
-import oilMustard from "../../assets/oil-mustard.png";
+import linen from "@/assets/linen.png";
+import oilLinen from "@/assets/oil-linen.png";
+import sesame from "@/assets/sesame.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import sunflower from "@/assets/sunflower.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import mustard from "@/assets/mustard.png";
+import oilMustard from "@/assets/oil-mustard.png";
 
-import flourSesame from "../../assets/flour-sesame.png";
-import flourLinen from "../../assets/flour-linen.png";
+import flourSesame from "@/assets/flour-sesame.png";
+import flourLinen from "@/assets/flour-linen.png";
 
 export const cards = [
   {

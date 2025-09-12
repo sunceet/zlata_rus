@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ruslan from "../../assets/ruslan.svg";
-import heart from "../../assets/heart.svg";
+import ruslan from "@/assets/ruslan.svg";
+import heart from "@/assets/heart.svg";
 
 const slides = [
   {

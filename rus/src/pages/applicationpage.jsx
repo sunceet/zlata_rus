@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
 // --- ASSETS ---
-import about from "../assets/about.png"; // 1920x540
-import bgGreen from "../assets/bg-green.svg"; // фон секции 1 и фон карточек секции 2
-import bgYellow from "../assets/bg-yellow.svg"; // фон секции 2 и фон карточек секции 1
-import heart from "../assets/heart.svg";
-import heart2 from "../assets/heart2.svg";
-import vector from "../assets/Vector.svg";
-import vector2 from "../assets/vector2.svg";
+import about from "@/assets/about.png"; // 1920x540
+import bgGreen from "@/assets/bg-green.svg"; // фон секции 1 и фон карточек секции 2
+import bgYellow from "@/assets/bg-yellow.svg"; // фон секции 2 и фон карточек секции 1
+import heart from "@/assets/heart.svg";
+import heart2 from "@/assets/heart2.svg";
+import vector from "@/assets/Vector.svg";
+import vector2 from "@/assets/vector2.svg";
 
 // Products
-import oilLinen from "../assets/oil-linen.png";
-import oilMustard from "../assets/oil-mustard.png";
-import oilSesame from "../assets/oil-sesame.png";
-import oilSunflower from "../assets/oil-sunflower.png";
-import flourLinen from "../assets/flour-linen (2).png";
-import flourSesame from "../assets/flour-sesame (2).png";
+import oilLinen from "@/assets/oil-linen.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import flourLinen from "@/assets/flour-linen (2).png";
+import flourSesame from "@/assets/flour-sesame (2).png";
 
 // Вспомогательно: для второго блока — делим твои points на ОПИСАНИЕ и ПОЛЬЗУ (сохраняя текст)
 function splitPointsToDescBenefit(points = []) {

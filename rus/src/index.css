@@ -40,3 +40,33 @@ body {
   transform-origin: center center;
   display: inline-block;
 }
+
+@layer base {
+  @font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Lato/Lato-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-weight: 500;
+    font-display: swap;
+    src: url(/fonts/Lato/Medium.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-weight: 600;
+    font-display: swap;
+    src: url(/fonts/Lato/Semibold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-weight: 700;
+    font-display: swap;
+    src: url(/fonts/Lato/Bold.ttf) format("truetype");
+  }
+}

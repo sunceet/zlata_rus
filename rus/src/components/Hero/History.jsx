@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import bgYellow from "../../assets/bg-yellow.svg";
-import vector from "../../assets/Vector2.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
+import vector from "@/assets/Vector2.svg";
 import HistoryCarousel from "./HistoryCarousel";
 
 const History = () => {

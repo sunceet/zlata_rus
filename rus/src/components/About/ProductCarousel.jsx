@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import arrow from "../../assets/arrow.svg";
-import vector from "../../assets/Vector.svg";
+import arrow from "@/assets/arrow.svg";
+import vector from "@/assets/Vector.svg";
 import ProductCard from "./ProductCard";
 import { cards } from "./cardsData";
 

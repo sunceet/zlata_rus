@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImage from "../../assets/about.png";
+import aboutImage from "@/assets/about.png";
 
 const AboutHero = () => (
   <div className="relative w-full h-[540px]">

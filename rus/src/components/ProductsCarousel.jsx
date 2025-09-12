@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useCallback } from "react";
 
 /* === Ассеты === */
-import linen from "../assets/linen.png";
-import oilLinen from "../assets/oil-linen.png";
-import sesame from "../assets/sesame.png";
-import oilSesame from "../assets/oil-sesame.png";
-import sunflower from "../assets/sunflower.png";
-import oilSunflower from "../assets/oil-sunflower.png";
-import mustard from "../assets/mustard.png";
-import oilMustard from "../assets/oil-mustard.png";
-import flourSesame from "../assets/flour-sesame-carousel.png";
-import flourLinen from "../assets/flour-linen_carousel.png";
-import arrowImg from "../assets/arrow.png";
-import lupa from "../assets/lupa.png";
+import linen from "@/assets/linen.png";
+import oilLinen from "@/assets/oil-linen.png";
+import sesame from "@/assets/sesame.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import sunflower from "@/assets/sunflower.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import mustard from "@/assets/mustard.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import flourSesame from "@/assets/flour-sesame-carousel.png";
+import flourLinen from "@/assets/flour-linen_carousel.png";
+import arrowImg from "@/assets/arrow.png";
+import lupa from "@/assets/lupa.png";
 
 /* === Данные карточек === */
 export const cards = [

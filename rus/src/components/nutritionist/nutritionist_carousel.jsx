@@ -2,19 +2,19 @@
 import React, { useState, useEffect } from "react";
 
 // --- ASSETS (продукты) ---
-import oilLinen from "../../assets/oil-linen.png";
-import oilSesame from "../../assets/oil-sesame.png";
-import oilMustard from "../../assets/oil-mustard.png";
-import oilSunflower from "../../assets/oil-sunflower.png";
-import flourLinen from "../../assets/flour-linen (2).png";
-import flourSesame from "../../assets/flour-sesame (2).png";
+import oilLinen from "@/assets/oil-linen.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import flourLinen from "@/assets/flour-linen (2).png";
+import flourSesame from "@/assets/flour-sesame (2).png";
 
-import bgYellow from "../../assets/bg-yellow.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
 
-import linenBack from "../../assets/linen.png";
-import sesameBack from "../../assets/sesame.png";
-import sunflowerBack from "../../assets/sunflower.png";
-import mustardBack from "../../assets/mustard (1).png";
+import linenBack from "@/assets/linen.png";
+import sesameBack from "@/assets/sesame.png";
+import sunflowerBack from "@/assets/sunflower.png";
+import mustardBack from "@/assets/mustard (1).png";
 
 // Общие размеры
 const CARD_WIDTH = 1535;
