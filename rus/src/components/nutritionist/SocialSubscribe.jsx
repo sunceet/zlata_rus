@@ -2,7 +2,7 @@
 
 // --- ASSETS ---
 import bgGreen from "@/assets/bg-green.svg";
-import heart from "@/assets/heart.svg"; // «сердечко с надписью» — использую heart.svg
+import heart from "@/assets/heart.svg";
 import instagram from "@/assets/instagram.png";
 import telegram from "@/assets/telegram.png";
 import vector from "@/assets/Vector.svg";
@@ -18,46 +18,50 @@ export default function SocialSubscribe() {
         backgroundPosition: "center",
       }}
     >
-      <div className="relative z-10 pt-[60px] pb-16 px-[40px] lg:px-[80px] xl:px-[120px] 2xl:px-[170px]">
+      {/* Единый контейнер как на Nutritionist */}
+      <div className="relative z-10 max-w-[1550px] mx-auto px-2 md:px-4 pt-10 sm:pt-14 lg:pt-[70px] pb-10 sm:pb-14 lg:pb-16">
         {/* ВНЕШНЯЯ РАМКА */}
-        <div className="rounded-[28px] border border-[#D7B56D] bg-[#0F3A3E]/60 shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
+        <div className="rounded-[20px] sm:rounded-[24px] border border-[#D7B56D] bg-[#0F3A3E]/60 shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
           {/* Заголовок */}
-          <h1
-            className="text-center py-8 text-[clamp(28px,3.5vw,56px)] font-lato font-extrabold
-                         bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
-          >
+          <h1 className="text-center py-6 sm:py-8 text-[32px] sm:text-[48px] lg:text-[48px] xl:text-[48px] 2xl:text-[64px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
             Подписывайся на соцсети
           </h1>
 
           {/* ВНУТРЕННЯЯ ПАНЕЛЬ */}
-          <div className="relative mx-4 mb-6 rounded-[20px] border border-[#D7B56D] bg-[#0F3A3E]/70 px-6 sm:px-8 py-6">
-            {/* Сердце справа сверху */}
+          <div className="relative mx-3 sm:mx-4 mb-6 rounded-[16px] sm:rounded-[20px] border border-[#D7B56D] bg-[#0F3A3E]/70 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+            {/* Сердце справа сверху — только на md+ */}
             <img
               src={heart}
               alt=""
-              className="hidden md:block absolute top-6 right-6 w-[176px] h-[160px] opacity-90"
+              className="hidden md:block absolute top-4 sm:top-6 right-4 sm:right-6 w-[120px] sm:w-[160px] lg:w-[176px] h-auto opacity-90 pointer-events-none select-none"
             />
 
-            {/* Шапка: аватар + имя + кнопки */}
-            <div className="flex items-center gap-5 pr-[160px]">
+            {/* Шапка: аватар + имя + кнопки (в одну линию, уменьшаем размеры на мобиле) */}
+            <div className="flex items-center gap-3 sm:gap-5 pr-0 md:pr-[140px] lg:pr-[160px]">
+              {/* Аватар */}
               <img
                 src={woman}
                 alt="Елена Селюкова"
-                className="w-[160px] h-[160px] rounded-full object-cover "
+                className="
+                  w-[110px] h-[110px]
+                  sm:w-[140px] sm:h-[140px]
+                  lg:w-[160px] lg:h-[160px]
+                  rounded-full object-cover
+                  shadow-[0_10px_30px_rgba(0,0,0,0.15)]
+                "
               />
-              <div className="flex-1">
-                <div
-                  className="text-[40px] font-lato font-bold
-                                bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
-                >
+
+              {/* Имя и кнопки */}
+              <div className="flex-1 min-w-0">
+                <div className="text-[22px] sm:text-[30px] lg:text-[40px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent leading-tight">
                   Елена Селюкова, нутрициолог
                 </div>
 
-                <div className="mt-3 flex flex-wrap items-center gap-[32px]">
+                <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                   {/* Telegram */}
                   <a
                     href="#"
-                    className="relative inline-flex justify-center items-center rounded-[18px] w-[195px] h-[56px] text-white"
+                    className="relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md hover:shadow-lg transition"
                     style={{
                       backgroundImage:
                         "linear-gradient(90deg, #7C622B 0%, #FFD170 100%)",
@@ -67,9 +71,9 @@ export default function SocialSubscribe() {
                     <img
                       src={telegram}
                       alt=""
-                      className="absolute left-4 w-[35px] mb-0.5 h-[35px]"
+                      className="absolute left-3 sm:left-4 w-[20px] h-[20px] sm:w-[22px] sm:h-[22px]"
                     />
-                    <span className="font-lato ml-3 text-[24px] font-semibold">
+                    <span className="font-lato pl-5 sm:pl-6 text-[15px] sm:text-[18px] xl:text-[23px] font-semibold">
                       Telegram
                     </span>
                   </a>
@@ -77,7 +81,7 @@ export default function SocialSubscribe() {
                   {/* Instagram */}
                   <a
                     href="#"
-                    className="relative inline-flex justify-center items-center rounded-[18px] w-[195px] h-[56px] text-white"
+                    className="relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md hover:shadow-lg transition"
                     style={{
                       backgroundImage:
                         "linear-gradient(90deg, #7C622B 0%, #FFD170 100%)",
@@ -87,9 +91,9 @@ export default function SocialSubscribe() {
                     <img
                       src={instagram}
                       alt=""
-                      className="absolute left-4 w-[32px] h-[32px]"
+                      className="top- absolute left-3 sm:left-4 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]"
                     />
-                    <span className="font-lato ml-7 text-[24px] font-semibold">
+                    <span className="font-lato pt-1 pl-6 sm:pl-7 text-[15px] sm:text-[18px] xl:text-[23px] font-semibold">
                       Instagram
                     </span>
                   </a>
@@ -97,11 +101,11 @@ export default function SocialSubscribe() {
               </div>
             </div>
 
-            <div className="my-5 border-t border-[#EDD19650]" />
+            <div className="my-4 sm:my-5 border-t border-[#EDD19650]" />
 
             {/* ТЕКСТОВОЙ БЛОК */}
-            <div className="space-y-5 text-[#EDD196]">
-              <p className="text-[15px] sm:text-[16px] lg:text-[23px] leading-relaxed">
+            <div className="space-y-4 sm:space-y-5 text-[#EDD196]">
+              <p className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] ">
                 В наших соцсетях (и особенно в моем Telegram-канале{" "}
                 <a
                   href="#"
@@ -113,19 +117,19 @@ export default function SocialSubscribe() {
               </p>
 
               <div>
-                <p className="text-[15px] sm:text-[16px] lg:text-[23px] mb-2">
+                <p className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] mb-2">
                   Подписывайся, если:
                 </p>
-                <ul className="space-y-1 pl-5">
+                <ul className="space-y-1 pl-4 sm:pl-5">
                   {[
                     "Хочешь знать больше о пользе масел;",
                     "Готовить вкусно, а главное полезно;",
                     "Разбираться и слушать свое тело;",
                     "Понять, что ЗОЖ и ПП это очень даже легко.",
                   ].map((t, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-[10px] block w-[8px] h-[8px] rounded-full bg-[#D7B56D] shrink-0" />
-                      <span className="text-[15px] sm:text-[16px] lg:text-[23px]">
+                    <li key={i} className="flex items-start gap-2.5 sm:gap-3">
+                      <span className="mt-[8px] sm:mt-[10px] block w-[6px] h-[6px] sm:w-[8px] sm:h-[8px] rounded-full bg-[#D7B56D] shrink-0" />
+                      <span className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] ">
                         {t}
                       </span>
                     </li>
@@ -135,7 +139,7 @@ export default function SocialSubscribe() {
 
               <div className="border-t border-[#EDD19640] my-3" />
 
-              <p className="text-[15px] sm:text-[16px] lg:text-[23px] leading-relaxed">
+              <p className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] leading-relaxed">
                 Подписывайтесь на телеграм{" "}
                 <a
                   href="#"
@@ -152,12 +156,12 @@ export default function SocialSubscribe() {
           </div>
         </div>
 
-        {/* Орнамент снизу */}
-        <div className="flex justify-center mt-12">
+        {/* Орнамент снизу — как в Nutritionist: скрыт до 640px */}
+        <div className="hidden sm:flex justify-center mt-10 sm:mt-12">
           <img
             src={vector}
             alt="Орнамент"
-            className="w-auto max-h-[120px] object-contain"
+            className="w-full max-w-[1540px] h-[24px] lg:h-[34px] object-contain"
           />
         </div>
       </div>

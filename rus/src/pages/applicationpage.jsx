@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 // --- ASSETS ---
-import about from "@/assets/about.png"; // 1920x540
-import bgGreen from "@/assets/bg-green.svg"; // фон секции 1 и фон карточек секции 2
-import bgYellow from "@/assets/bg-yellow.svg"; // фон секции 2 и фон карточек секции 1
+import about from "@/assets/about.png";
+import bgGreen from "@/assets/bg-green.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
 import heart from "@/assets/heart.svg";
 import heart2 from "@/assets/heart2.svg";
 import vector from "@/assets/Vector.svg";
@@ -17,32 +17,33 @@ import oilMustard from "@/assets/oil-mustard.png";
 import oilSesame from "@/assets/oil-sesame.png";
 import oilSunflower from "@/assets/oil-sunflower.png";
 
-// Вспомогательно: для второго блока — делим твои points на ОПИСАНИЕ и ПОЛЬЗУ (сохраняя текст)
+// helper
 function splitPointsToDescBenefit(points = []) {
   if (!points.length) return { desc: "", benefit: "" };
   const mid = Math.ceil(points.length / 2);
-  const desc = points.slice(0, mid).join(" ");
-  const benefit = points.slice(mid).join(" ");
-  return { desc, benefit };
+  return {
+    desc: points.slice(0, mid).join(" "),
+    benefit: points.slice(mid).join(" "),
+  };
 }
 
 function FlipCard({
   image,
   title,
-  points, // массив для блока 1 (рендерится как маркеры)
-  frontBg, // фон фронта (обеих секций)
-  backBg, // фон бэка  (обеих секций)
-  titleClass, // класс для текста под фото (разный во 2-м блоке)
-  backMode, // "list" | "descBenefit" — режим обратной стороны
-  backTextColor = "#1C3B3E", // цвет текста на обороте (по умолчанию тёмно-зелёный)
-  descText = "", // для режима descBenefit
-  benefitText = "", // для режима descBenefit
+  points,
+  frontBg,
+  backBg,
+  titleClass,
+  backMode, // "list" | "descBenefit"
+  backTextColor = "#1C3B3E",
+  descText = "",
+  benefitText = "",
 }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
     <div
-      className="relative w-[376px] h-[414px] [perspective:1000px] cursor-pointer"
+      className="relative w-full h-[320px] sm:h-[380px] lg:h-[414px] [perspective:1000px] cursor-pointer"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
       onClick={() => setFlipped((v) => !v)}
@@ -60,12 +61,12 @@ function FlipCard({
           <img
             src={image}
             alt={title}
-            className="max-w-[80%] max-h-[80%] mb-6 object-contain"
+            className="max-w-[78%] max-h-[70%] mb-4 sm:mb-6 object-contain"
           />
           <div
             className={
               titleClass ??
-              "font-bold text-[24px] font-lato uppercase text-center px-2 text-[#1C3B3E]"
+              "font-bold text-[18px] sm:text-[20px] lg:text-[24px] font-lato uppercase text-center px-2 text-[#1C3B3E]"
             }
           >
             {title}
@@ -74,39 +75,37 @@ function FlipCard({
 
         {/* BACK */}
         <div
-          className="absolute inset-0 rounded-2xl flex items-center justify-center p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)]"
+          className="absolute inset-0 rounded-2xl flex items-center justify-center p-4 sm:p-6 text-left [backface-visibility:hidden] [transform:rotateY(180deg)]"
           style={backBg}
         >
-          {/* Режим 1: список поинтов (блок 1) */}
           {backMode === "list" ? (
             <ul
-              className="w-[80%] mx-auto list-none font-lato text-[20px] font-[350px] flex flex-col items-start justify-center gap-2"
+              className="w-[100%] sm:w-[80%] mx-auto list-none font-lato text-[12px] sm:text-[16px] lg:text-[20px] font-[350] flex flex-col items-start justify-center gap-2"
               style={{ color: backTextColor }}
             >
               {points?.map((p, i) => (
                 <li key={i} className="flex items-start gap-2.5">
-                  <span className="mt-2 block w-[8px] h-[8px] rounded-full bg-[#1C3B3E] shrink-0"></span>
-                  <span className="leading-7">{p}</span>
+                  <span className="mt-[7px] sm:mt-[8px] block  h-[4px] w-[4px] sm:w-[8px] sm:h-[8px] rounded-full bg-[#1C3B3E] shrink-0" />
+                  <span className="">{p}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            // Режим 2: ОПИСАНИЕ -> текст; ПОЛЬЗА -> текст (блок 2)
-            <div className="w-[85%] mx-auto font-lato">
-              <h4 className="font-bold text-[20px] font-lato bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
+            <div className="w-[100%] sm:w-[100%] mx-auto font-lato">
+              <h4 className="font-bold text-[14px] sm:text-[18px] lg:text-[20px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
                 ОПИСАНИЕ
               </h4>
               <p
-                className="text-[16px] font-[350px] font-lato leading-7 mb-4"
+                className="text-[12px] sm:text-[16px] lg:text-[18px] mb-3 font-normal"
                 style={{ color: backTextColor }}
               >
                 {descText}
               </p>
-              <h4 className="font-bold text-[20px] bg-gradient-to-r font-lato from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent ">
+              <h4 className="font-bold text-[14px] sm:text-[16px] lg:text-[20px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
                 ПОЛЬЗА
               </h4>
               <p
-                className="text-[16px] font-[350px] font-lato leading-7"
+                className="text-[12px] sm:text-[16px] lg:text-[18px] font-normal"
                 style={{ color: backTextColor }}
               >
                 {benefitText}
@@ -120,7 +119,7 @@ function FlipCard({
 }
 
 export default function ApplicationPage() {
-  // Секция 1 (Применение) — жёлтый фон карточек, список поинтов
+  // SECTION 1
   const cards1 = [
     {
       image: oilLinen,
@@ -190,13 +189,13 @@ export default function ApplicationPage() {
     },
   ];
 
-  // Секция 2 (Польза и описание) — фон карточек с двух сторон green, текст делим на ОПИСАНИЕ/ПОЛЬЗУ
+  // SECTION 2
   const cards2 = [
     {
       image: oilLinen,
       title: "льняное масло",
       points: [
-        "Источник омега‑3 и антиоксидантов, благоприятно влияющий на здоровье сердца, кожи и фигуры.",
+        "Источник омега-3 и антиоксидантов, благоприятно влияющий на здоровье сердца, кожи и фигуры.",
         "Снижает холестерин, поддерживает давление, иммунитет и обмен веществ. Улучшает состояние кожи, волос, способствует похудению и снятию стресса.",
       ],
     },
@@ -212,7 +211,7 @@ export default function ApplicationPage() {
       image: oilSesame,
       title: "кунжутное масло",
       points: [
-        "Ароматное масло с витаминами и омега‑кислотами, полезное для сердца, кожи и обмена веществ.",
+        "Ароматное масло с витаминами и омега-кислотами, полезное для сердца, кожи и обмена веществ.",
         "Укрепляет сосуды, снижает холестерин, поддерживает пищеварение. Увлажняет кожу, защищает от воспалений и ультрафиолета.",
       ],
     },
@@ -228,7 +227,7 @@ export default function ApplicationPage() {
       image: flourLinen,
       title: "льняная мука",
       points: [
-        "Богатая клетчаткой и омега‑3 мука для очищения организма и укрепления здоровья.",
+        "Богатая клетчаткой и омега-3 мука для очищения организма и укрепления здоровья.",
         "Улучшает пищеварение, снижает холестерин, поддерживает иммунитет. Помогает в снижении веса, нормализует сахар в крови, укрепляет кожу и волосы.",
       ],
     },
@@ -242,7 +241,6 @@ export default function ApplicationPage() {
     },
   ];
 
-  // Фоны карточек
   const yellowBg = {
     backgroundImage: `url(${bgYellow})`,
     backgroundSize: "cover",
@@ -257,44 +255,45 @@ export default function ApplicationPage() {
   return (
     <div className="font-sans text-gray-800">
       {/* ===== HERO #1 ===== */}
-      <section className="relative w-full h-[540px] grid place-items-center overflow-hidden">
+      <section className="relative w-full h-[340px] sm:h-[440px] lg:h-[540px] grid place-items-center overflow-hidden">
         <img
           src={about}
           alt="Фон о нас"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative text-center z-10">
-          <h1 className="text-white font-bold text-[60px] font-lato ">
+        <div className="relative text-center z-10 px-4">
+          <h1 className="text-white font-bold text-[36px] sm:text-[48px] lg:text-[60px] font-lato">
             ПРИМЕНЕНИЕ
           </h1>
-          <p className="text-white font-normal text-[24px] text ">
+          <p className="text-white font-normal text-[16px] sm:text-[20px] lg:text-[24px]">
             Советы по применению нашей продукции
           </p>
         </div>
       </section>
 
       {/* ===== SECTION #1 (BG GREEN, cards YELLOW) ===== */}
-      <section className="relative">
+      {/* ===== SECTION #1 (BG GREEN, cards YELLOW) ===== */}
+      <section className="relative overflow-hidden">
         <img
           src={bgGreen}
-          alt="Зелёный фон"
+          alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* TEXT */}
-        <div className="relative z-10 max-w-[1600px] pt-[70px] pl-[160px] pr-[160px]">
-          <h2 className="font-bold font-lato text-[24px] text-[#D7B56D]">
-            НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ ПЕРЕВЕРНУТЬ
-          </h2>
-          <p className="mt-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-[48px] font-lato font-bold">
-            ПРИМЕНЕНИЕ НАШЕЙ ПРОДУКЦИИ
-          </p>
-        </div>
-        {/* GRID #1 */}
-        <div className="relative z-10 mt-6 px-[160px] max-w-[1920px] mx-auto flex flex-col items-center gap-8">
-          <div className="grid grid-cols-4 gap-8 justify-center">
-            {cards1.slice(0, 4).map((c, idx) => (
+        <div className="relative z-10 max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-5 pb-10 sm:pb-12 lg:pb-16">
+          <div className="pt-10">
+            <h2 className="font-bold font-lato text-[14px] sm:text-[18px] lg:text-[24px] text-[#D7B56D]">
+              НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ ПЕРЕВЕРНУТЬ
+            </h2>
+            <p className="mt-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-[26px] sm:text-[36px] lg:text-[48px] font-lato font-bold">
+              ПРИМЕНЕНИЕ НАШЕЙ ПРОДУКЦИИ
+            </p>
+          </div>
+
+          {/* < 1280px: один общий грид на все 6 карточек, сердце скрыто */}
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 xl:hidden">
+            {cards1.map((c, idx) => (
               <FlipCard
-                key={idx}
+                key={`all1-subxl-${idx}`}
                 {...c}
                 frontBg={yellowBg}
                 backBg={yellowBg}
@@ -303,10 +302,12 @@ export default function ApplicationPage() {
               />
             ))}
           </div>
-          <div className="grid mb-[60px] grid-cols-3 gap-8 justify-center items-center">
-            {cards1.slice(4).map((c, idx) => (
+
+          {/* ≥ 1280px: 4 карточки сверху */}
+          <div className="mt-6 hidden xl:grid grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {cards1.slice(0, 4).map((c, idx) => (
               <FlipCard
-                key={`b${idx}`}
+                key={`top1-xl-${idx}`}
                 {...c}
                 frontBg={yellowBg}
                 backBg={yellowBg}
@@ -314,75 +315,118 @@ export default function ApplicationPage() {
                 backTextColor="#1C3B3E"
               />
             ))}
-            <div className="flex items-center justify-center">
+          </div>
+
+          {/* ≥ 1280px: снизу 2 карточки + сердце по центру */}
+          <div className="mt-6 hidden lg:ml-15 lg:mr-15 xl:grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-center">
+            {/* левая карточка */}
+            <FlipCard
+              key="bot1-xl-left"
+              {...cards1[4]}
+              frontBg={yellowBg}
+              backBg={yellowBg}
+              backMode="list"
+              backTextColor="#1C3B3E"
+            />
+            {/* сердце — видно только ≥1280px */}
+            <div className="hidden xl:flex items-center justify-center">
               <img
                 src={heart}
                 alt=""
-                className="w-[372.44px] h-[339.59px] heartbeat"
+                className="w-[240px] sm:w-[300px] lg:w-[372px] h-auto heartbeat"
               />
             </div>
+            {/* правая карточка */}
+            <FlipCard
+              key="bot1-xl-right"
+              {...cards1[5]}
+              frontBg={yellowBg}
+              backBg={yellowBg}
+              backMode="list"
+              backTextColor="#1C3B3E"
+            />
           </div>
-        </div>
-        {/* Орнамент 1 */}
-        <div className="relative z-10 flex w-full justify-center mt-6">
-          <img
-            src={vector}
-            alt="Орнамент"
-            className="w-[1540px] -mt-10 mb-13 h-[34px]"
-          />
+
+          {/* Орнамент 1 — скрыт до 640px */}
+          <div className="hidden sm:flex w-full justify-center mt-8">
+            <img
+              src={vector}
+              alt="Орнамент"
+              className="w-full max-w-[1540px] h-[24px] lg:h-[34px]"
+            />
+          </div>
         </div>
       </section>
 
       {/* ===== HERO #2 ===== */}
-      <section className="relative w-full h-[540px] grid place-items-center overflow-hidden ">
+      <section className="relative w-full h-[340px] sm:h-[440px] lg:h-[540px] grid place-items-center overflow-hidden">
         <img
           src={about}
           alt="Фон о нас"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative text-center w-full z-10 max-w-[1200px]">
-          <h2 className="text-white font-bold text-[60px] font-lato ">
+        <div className="relative text-center w-full z-10 max-w=[1200px] px-4">
+          <h2 className="text-white font-bold text-[28px] sm:text-[44px] lg:text-[60px] font-lato">
             ПОЛЬЗА И ОПИСАНИЕ ПРОДУКТОВ
           </h2>
-          <p className="text-white font-normal text-[24px] text-center whitespace-nowrap">
+          <p className="text-white font-normal text-[14px] sm:text-[18px] lg:text-[24px]">
             Узнайте о полезных свойствах наших растительных масел и муки, а
             также об их уникальном вкусе и применении
           </p>
         </div>
       </section>
 
-      {/* ===== SECTION #2 (BG YELLOW, cards GREEN): FRONT title — золотой градиент, BACK — #D7B56D; ОПИСАНИЕ → ПОЛЬЗА ===== */}
-      <section className="relative">
+      {/* ===== SECTION #2 (BG YELLOW, cards GREEN) ===== */}
+      {/* ===== SECTION #2 (BG YELLOW, cards GREEN) ===== */}
+      <section className="relative overflow-hidden">
         <img
           src={bgYellow}
-          alt="Жёлтый фон"
+          alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* TEXT */}
-        <div className="relative z-10 max-w-[1600px] pt-[70px] pl-[160px] pr-[160px]">
-          <h3 className="font-bold font-lato text-[24px] text-[#1C3B3E]">
-            НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ УЗНАТЬ БОЛЬШЕ
-          </h3>
-          <p className="mt-2 text-[#1C3B3E] text-[36px] font-lato font-bold">
-            ПОЛЕЗНЫЕ СВОЙСТВА И ВКУС
-          </p>
-        </div>
-        {/* GRID #2 */}
-        <div className="relative z-10 mt-6 px-[160px] max-w-[1920px] mx-auto flex flex-col items-center gap-8">
-          {/* верхний ряд */}
-          <div className="grid grid-cols-4 gap-8 justify-center">
+        <div className="relative z-10 max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-5 pb-10 sm:pb-12 lg:pb-16">
+          <div className="pt-10">
+            <h3 className="font-bold font-lato text-[14px] sm:text-[18px] lg:text-[24px] text-[#1C3B3E]">
+              НАВЕДИТЕСЬ НА КАРТОЧКУ, ЧТОБЫ УЗНАТЬ БОЛЬШЕ
+            </h3>
+            <p className="mt-2 text-[#1C3B3E] text-[22px] sm:text-[28px] lg:text-[36px] font-lato font-bold">
+              ПОЛЕЗНЫЕ СВОЙСТВА И ВКУС
+            </p>
+          </div>
+
+          {/* < 1280px: один общий грид на все 6 карточек */}
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 xl:hidden">
+            {cards2.map((c, idx) => {
+              const { desc, benefit } = splitPointsToDescBenefit(c.points);
+              return (
+                <FlipCard
+                  key={`all2-subxl-${idx}`}
+                  image={c.image}
+                  title={c.title}
+                  frontBg={greenBg}
+                  backBg={greenBg}
+                  titleClass="font-bold text-[18px] sm:text-[20px] lg:text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
+                  backMode="descBenefit"
+                  backTextColor="#D7B56D"
+                  descText={desc}
+                  benefitText={benefit}
+                />
+              );
+            })}
+          </div>
+
+          {/* ≥ 1280px: 4 сверху */}
+          <div className="mt-6 hidden xl:grid grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {cards2.slice(0, 4).map((c, idx) => {
               const { desc, benefit } = splitPointsToDescBenefit(c.points);
               return (
                 <FlipCard
-                  key={`top2-${idx}`}
+                  key={`top2-xl-${idx}`}
                   image={c.image}
                   title={c.title}
                   frontBg={greenBg}
                   backBg={greenBg}
-                  // ЗАКРЫТАЯ карточка — градиентный золотой текст под фото:
-                  titleClass="font-bold text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
-                  // ОТКРЫТАЯ карточка — цвет текста #D7B56D, структура: ОПИСАНИЕ → ПОЛЬЗА
+                  titleClass="font-bold text-[18px] sm:text-[20px] lg:text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
                   backMode="descBenefit"
                   backTextColor="#D7B56D"
                   descText={desc}
@@ -391,52 +435,73 @@ export default function ApplicationPage() {
               );
             })}
           </div>
-          {/* нижний ряд */}
-          <div className="grid mb-[60px] grid-cols-3 gap-8 justify-center items-center">
-            {cards2.slice(4).map((c, idx) => {
+
+          {/* ≥ 1280px: снизу 2 карточки + сердце по центру (сердце видно только на xl) */}
+          <div className="mt-6 hidden lg:ml-15 lg:mr-15 xl:grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-center">
+            {(() => {
+              const c = cards2[4];
               const { desc, benefit } = splitPointsToDescBenefit(c.points);
               return (
                 <FlipCard
-                  key={`bot2-${idx}`}
+                  key="bot2-xl-left"
                   image={c.image}
                   title={c.title}
                   frontBg={greenBg}
                   backBg={greenBg}
-                  titleClass="font-bold text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
+                  titleClass="font-bold text-[18px] sm:text-[20px] lg:text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
                   backMode="descBenefit"
                   backTextColor="#D7B56D"
                   descText={desc}
                   benefitText={benefit}
                 />
               );
-            })}
-            <div className="flex items-center justify-center">
+            })()}
+            <div className="hidden xl:flex items-center justify-center">
               <img
                 src={heart2}
                 alt=""
-                className="w-[372.44px] h-[339.59px] heartbeat"
+                className="w-[300px] lg:w-[372px] h-auto heartbeat"
               />
             </div>
+            {(() => {
+              const c = cards2[5];
+              const { desc, benefit } = splitPointsToDescBenefit(c.points);
+              return (
+                <FlipCard
+                  key="bot2-xl-right"
+                  image={c.image}
+                  title={c.title}
+                  frontBg={greenBg}
+                  backBg={greenBg}
+                  titleClass="font-bold text-[18px] sm:text-[20px] lg:text-[24px] font-lato uppercase text-center px-2 bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent"
+                  backMode="descBenefit"
+                  backTextColor="#D7B56D"
+                  descText={desc}
+                  benefitText={benefit}
+                />
+              );
+            })()}
           </div>
-        </div>
-        {/* Орнамент 2 */}
-        <div className="relative z-10 flex w-full justify-center mt-6">
-          <img
-            src={vector2}
-            alt="Орнамент"
-            className="w-[1540px] -mt-10 mb-13 h-[34px]"
-          />
+
+          {/* Орнамент 2 — скрыт до 640px */}
+          <div className="hidden sm:flex w-full justify-center mt-8">
+            <img
+              src={vector2}
+              alt="Орнамент"
+              className="w-full max-w-[1540px] h-[24px] lg:h-[34px]"
+            />
+          </div>
         </div>
       </section>
 
-      {/* Локальная анимация сердца */}
+      {/* сердце анимация */}
       <style>{`
         @keyframes heartbeat {
-          0%   { transform: scale(1); }
-          25%  { transform: scale(1.08); }
-          40%  { transform: scale(0.97); }
-          60%  { transform: scale(1.1); }
-          75%  { transform: scale(0.98); }
+          0% { transform: scale(1); }
+          25% { transform: scale(1.08); }
+          40% { transform: scale(0.97); }
+          60% { transform: scale(1.1); }
+          75% { transform: scale(0.98); }
           100% { transform: scale(1); }
         }
         .heartbeat {

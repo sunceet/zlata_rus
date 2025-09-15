@@ -4,7 +4,7 @@ import bgYellow from "@/assets/bg-yellow.svg";
 import heartSvg from "@/assets/heart.svg";
 import ruslanImg from "@/assets/ruslan.png";
 import vector from "@/assets/Vector.svg";
-import zrVideo from "@/assets/zr-video.mp4"; // ✅ добавил видео
+import zrVideo from "@/assets/zr-video.mp4";
 import ProductsCarousel from "@/components/ProductsCarousel";
 
 export default function About() {

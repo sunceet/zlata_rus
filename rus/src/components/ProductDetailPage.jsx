@@ -176,27 +176,26 @@ function BackToProductsText({ className = "" }) {
 }
 
 // Иконка (плюс/крест) с анимацией
-// Иконка: плюс → крестик (плавное превращение)
 const ToggleIcon = ({ open }) => (
   <span
-    className={`flex items-center justify-center w-12 h-12 rounded-xl border border-[#D7B56D] bg-[#142D30]
+    className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-xl border border-[#D7B56D] bg-[#142D30]
       transition-shadow duration-300 ${
         open ? "shadow-[0_0_20px_rgba(215,181,109,0.25)]" : ""
       }`}
     aria-hidden="true"
   >
-    <span className="relative block w-6 h-6">
-      {/* Полоска 1 */}
+    <span className="relative block ">
       <span
-        className={`absolute left-1/2 top-1/2 block w-6 h-[2px] -translate-x-1/2 -translate-y-1/2 bg-[#D7B56D]
-          transition-transform duration-300 ease-out
-          ${open ? "rotate-45" : "rotate-0"} group-hover:scale-105`}
+        className={`absolute left-1/2 top-1/2 block w-4 h-[2px] sm:w-6 sm:h-[2px] -translate-x-1/2 -translate-y-1/2 bg-[#D7B56D]
+          transition-transform duration-300 ease-out ${
+            open ? "rotate-45" : "rotate-0"
+          } group-hover:scale-105`}
       />
-      {/* Полоска 2 */}
       <span
-        className={`absolute left-1/2 top-1/2 block w-6 h-[2px] -translate-x-1/2 -translate-y-1/2 bg-[#D7B56D]
-          transition-transform duration-300 ease-out
-          ${open ? "-rotate-45" : "rotate-90"} group-hover:scale-105`}
+        className={`absolute left-1/2 top-1/2 block w-4  sm:w-6 h-[2px] -translate-x-1/2 -translate-y-1/2 bg-[#D7B56D]
+          transition-transform duration-300 ease-out ${
+            open ? "-rotate-45" : "rotate-90"
+          } group-hover:scale-105`}
       />
     </span>
   </span>
@@ -206,23 +205,23 @@ const ToggleIcon = ({ open }) => (
 function AccordionSection({ title, open, onToggle, children }) {
   return (
     <div
-      className={`rounded-[32px] border border-[#D7B56D] overflow-hidden bg-[#1C3B3E] text-[#F7E8B0] transition-shadow duration-300 ${
+      className={` w-full rounded-[32px] border border-[#D7B56D] overflow-hidden bg-[#1C3B3E] text-[#F7E8B0] transition-shadow duration-300 ${
         open ? "shadow-[inset_0_0_30px_rgba(215,181,109,0.20)]" : ""
       }`}
-      style={{ width: "1600px", height: open ? "auto" : "120px" }}
+      // ширину не фиксируем — пусть совпадает с контейнером
     >
       <button
         onClick={onToggle}
-        className="group w-full h-[120px] px-6 flex items-center justify-between text-left"
+        className="group  w-full h-[80px] sm:h-[120px] px-6 flex items-center justify-between text-left"
       >
-        <h2 className="ml-10 text-[28px] text-[#D7B56D] font-lato font-semibold">
+        <h2 className="ml-3 sm:ml-10 text-[20px] sm:text-[27px] lg:text-[32px] text-[#D7B56D] font-lato font-semibold">
           {title}
         </h2>
         <ToggleIcon open={open} />
       </button>
 
       {open && (
-        <div className="ml-12 px-6 font-light text-[18px] text-[#D7B56D] -mt-8 pb-4 animate-accordion-in">
+        <div className="ml-5 sm:ml-10 2xl:ml-12 px-3 xl:px-6 font-light text-[13px] sm:text-[17px] lg:text-[20px] text-[#D7B56D] -mt-4 sm:-mt-8 pb-4 animate-accordion-in">
           {children}
         </div>
       )}
@@ -253,7 +252,7 @@ export default function ProductDetailPage({ idOverride }) {
 
   return (
     <>
-      {/* Локальные keyframes для премиальной анимации */}
+      {/* Локальные keyframes */}
       <style>{`
         @keyframes accordion-in {
           0%   { opacity: 0; transform: translateY(-6px) scaleY(0.98); }
@@ -266,54 +265,59 @@ export default function ProductDetailPage({ idOverride }) {
       `}</style>
 
       <div
-        className="min-h-screen bg-no-repeat bg-cover"
+        className="min-h-screen bg-no-repeat bg-cover pb-7 sm:pb-0 overflow-hidden"
         style={{
           backgroundImage: `url(${bgYellow})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="container mx-auto py-2">
-          {/* Орнамент */}
-          <div className="flex mt-5 mb-1 w-full justify-center">
-            <img src={vector} alt="Орнамент" className="w-[1520px] h-[34px]" />
+        {/* ЕДИНЫЙ КОНТЕЙНЕР С ТЕМИ ЖЕ ОТСТУПАМИ, ЧТО И НА СТРАНИЦЕ СПИСКА */}
+        <div className="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-5">
+          {/* Орнамент (верх) */}
+          <div className="hidden sm:flex w-full justify-center">
+            <img
+              src={vector}
+              alt="Орнамент"
+              className="w-full mt-7 max-w-[1520px] h-auto lg:h-[34px]"
+            />
           </div>
 
-          {/* Текстовая кнопка назад */}
+          {/* Кнопка назад */}
           <BackToProductsText className="mb-8 mt-6" />
 
           {/* Внешний бордер */}
-          <div className="mb-[32px] bg-[#1C3B3E] border border-[#D7B56D] rounded-[32px] p-10 text-[#F7E8B0]">
-            <h1 className="text-[48px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-lato font-bold mb-8">
+          <div className="mb-5 sm:mb-8 bg-[#1C3B3E] border border-[#D7B56D] rounded-[32px] p-6 sm:p-8 lg:p-10 text-[#F7E8B0]">
+            <h1 className="text-[20px] sm:text-4xl lg:text-[48px] bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent font-lato font-bold mb-6 lg:mb-8">
               {product.name}
             </h1>
 
             {/* Внутренний бордер */}
-            <div className="border border-[#D7B56D] rounded-[32px] p-8 flex">
+            <div className="border border-[#D7B56D] rounded-[32px] p-5 sm:p-6 lg:p-8 flex flex-col lg:flex-row">
               {/* Фото */}
               <div
                 className={`flex-shrink-0 flex justify-center items-center ${
                   product.name.toLowerCase().includes("мука")
-                    ? "w-[320px]"
-                    : "w-[200px]"
+                    ? "w-full lg:w-[320px]"
+                    : "w-full lg:w-[200px]"
                 }`}
               >
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="max-w-full h-auto object-contain max-h-[400px]"
+                  className="max-w-full h-auto object-contain max-h-[300px] sm:max-h-[400px]"
                 />
               </div>
 
               {/* Текстовая часть */}
-              <div className={`flex flex-col justify-start ml-10`}>
+              <div className="flex flex-col justify-start lg:ml-10 mt-6 lg:mt-0">
                 {/* Бейджи */}
                 {Array.isArray(product.badges) && product.badges.length > 0 && (
                   <div className="flex flex-wrap gap-3 mb-6">
                     {product.badges.map((b, i) => (
                       <span
                         key={i}
-                        className="bg-[#D7B56D] text-[#1C3B3E] rounded-full px-6 py-2 font-weight-[350px]"
+                        className="bg-[#D7B56D] text-[#1C3B3E] rounded-full text-[14px] px-6 py-2"
                       >
                         {b}
                       </span>
@@ -321,7 +325,7 @@ export default function ProductDetailPage({ idOverride }) {
                   </div>
                 )}
 
-                <p className="text-[22px] font-lato font-light text-[#D7B56D] leading-relaxed">
+                <p className="text-[14px] sm:text-lg lg:text-[22px] font-lato font-light text-[#D7B56D] leading-relaxed">
                   {product.description}
                 </p>
               </div>
@@ -329,7 +333,7 @@ export default function ProductDetailPage({ idOverride }) {
           </div>
 
           {/* Польза */}
-          <div className="mb-[16px] flex justify-center">
+          <div className="mb-4">
             <AccordionSection
               title={`Польза ${
                 product.name.toLowerCase().includes("мука") ? "муки" : "масла"
@@ -346,7 +350,7 @@ export default function ProductDetailPage({ idOverride }) {
           </div>
 
           {/* Применение */}
-          <div className="mb-6 flex justify-center">
+          <div className="">
             <AccordionSection
               title={`Применение ${
                 product.name.toLowerCase().includes("мука") ? "муки" : "масла"
@@ -354,7 +358,7 @@ export default function ProductDetailPage({ idOverride }) {
               open={expandedSection === "usage"}
               onToggle={() => toggleSection("usage")}
             >
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-2 ">
                 {product.usage.map((use, index) => (
                   <li key={index}>{use}</li>
                 ))}
@@ -363,11 +367,12 @@ export default function ProductDetailPage({ idOverride }) {
           </div>
         </div>
 
-        <div className="flex -mt-2 w-full justify-center">
+        {/* Орнамент (низ) — выровнен теми же отступами/шириной */}
+        <div className="hidden sm:flex w-full justify-center">
           <img
             src={vector}
             alt="Орнамент"
-            className="w-[1470px] mb-10 h-[34px]"
+            className="w-full mt-10 mb-10 px-[24px] max-w-[1550px] h-auto lg:h-[34px]"
           />
         </div>
       </div>

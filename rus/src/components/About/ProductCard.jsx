@@ -1,4 +1,3 @@
-
 const ProductCard = ({ title, bg, oil, points }) => (
   <div className="w-[500px] h-[538px] bg-white border border-[#D7B56D] rounded-[42px] relative overflow-hidden mx-5 flex-shrink-0">
     {/* фон */}
