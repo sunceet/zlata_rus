@@ -10,7 +10,7 @@ const History = () => {
     <section
       id="history"
       ref={historyRef}
-      className="relative w-full min-h-[1100px] bg-cover bg-center text-[#19474B] pt-[60px] pb-5"
+      className="relative w-full min-h-[1050px] bg-cover bg-center text-[#19474B] pt-[60px] pb-5 "
       style={{ backgroundImage: `url(${bgYellow})` }}
     >
       <div className="relative z-10">
@@ -33,7 +33,7 @@ const History = () => {
 
         <HistoryCarousel />
 
-        <div className="hidden sm:flex justify-center mt-10 sm:mt-12">
+        <div className="hidden sm:flex justify-center  mt-10 sm:mt-12">
           <img
             src={vector}
             alt="Орнамент"

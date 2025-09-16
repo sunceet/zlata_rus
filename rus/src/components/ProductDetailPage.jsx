@@ -167,10 +167,16 @@ function BackToProductsText({ className = "" }) {
       className={`inline-flex items-center gap-3 px-6 py-3 rounded-[24px] border cursor-pointer select-none transition hover:bg-[#1C3B3E]/10 ${className}`}
       style={{ borderColor: "#1C3B3E", color: "#1C3B3E" }}
     >
-      <span className="flex items-center justify-center w-9 h-9 rounded-full">
-        <img src={arrowFor} alt="назад" className="w-[36px] h-[36px]" />
+      <span className="flex items-center justify-center sm:w-9 sm:h-9 rounded-full">
+        <img
+          src={arrowFor}
+          alt="назад"
+          className="w-[25px] h-[25px] sm:w-[36px] sm:h-[36px]"
+        />
       </span>
-      <span className="text-lg font-semibold">Вернуться к продукции</span>
+      <span className="text-sm sm:text-lg font-semibold">
+        Вернуться к продукции
+      </span>
     </div>
   );
 }

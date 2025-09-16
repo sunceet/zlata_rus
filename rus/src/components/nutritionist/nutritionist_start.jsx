@@ -46,8 +46,10 @@ export default function Nutritionist() {
             {/* Кнопки соцсетей */}
             <div className="mt-4 sm:mt-6 flex flex-wrap gap-3 sm:gap-4">
               <a
-                href="#"
-                className="group inline-flex items-center gap-1 sm:gap-3 rounded-full px-4 sm:px-5 py-2 sm:py-3 transition shadow-md hover:shadow-lg"
+                href="https://t.me/profiguru_fit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1 sm:gap-3 rounded-full px-4 sm:px-5 py-2 sm:py-3 transition shadow-md hover:shadow-lg hover:scale-105 hover:brightness-110"
                 style={{
                   backgroundImage: "linear-gradient(90deg, #7C622B, #FFD170)",
                 }}
@@ -55,16 +57,18 @@ export default function Nutritionist() {
                 <img
                   src={telegram}
                   alt=""
-                  className="-ml-2 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]"
+                  className="-ml-2 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] transition-transform group-hover:rotate-6"
                 />
-                <span className="text-white  font-lato text-[11px] sm:text-[18px]">
+                <span className="text-white font-lato text-[11px] sm:text-[18px]">
                   Telegram
                 </span>
               </a>
 
               <a
-                href="#"
-                className="group inline-flex items-center gap-1 sm:gap-3 rounded-full px-4 sm:px-5 py-2 sm:py-3 transition shadow-md hover:shadow-lg"
+                href="https://www.instagram.com/dietolog_elselyukova?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1 sm:gap-3 rounded-full px-4 sm:px-5 py-2 sm:py-3 transition shadow-md hover:shadow-lg hover:scale-105 hover:brightness-110"
                 style={{
                   backgroundImage: "linear-gradient(90deg, #7C622B, #FFD170)",
                 }}
@@ -72,7 +76,7 @@ export default function Nutritionist() {
                 <img
                   src={instagram}
                   alt=""
-                  className="-ml-1 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]"
+                  className="-ml-1 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] transition-transform group-hover:rotate-6"
                 />
                 <span className="text-white font-lato text-[11px] sm:text-[18px]">
                   Instagram

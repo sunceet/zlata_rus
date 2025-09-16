@@ -65,8 +65,8 @@ function ProductCard({ name, image, type, insetOffset = 0 }) {
   const baseTop = type === "flour" ? 90 : 84; // базовый отступ «подложки»
   const imageShift =
     type === "flour"
-      ? "mt-[60px] sm:mt-[115px] lg:mt-[115px] max-h-full sm:max-h-[600px] lg:max-h-[700px]"
-      : "mt-[0px] sm:mt-[120px] lg:mt-[130px] -mb-[16px] sm:-mb-[24px] lg:-mb-[40px] max-h-[85%] sm:max-h-[500px] lg:max-h-[540px]";
+      ? "mt-[20px] sm:mt-[115px] lg:mt-[1px] max-h-[200px] sm:max-h-[600px] lg:max-h-[350px]"
+      : "mt-[0px] sm:mt-[120px] lg:mt-[130px] -mb-[16px] sm:-mb-[24px] lg:mb-30 max-h-[85%] sm:max-h-[500px] lg:max-h-[370px]";
 
   return (
     <div
@@ -83,7 +83,7 @@ function ProductCard({ name, image, type, insetOffset = 0 }) {
       <div className="pt-3 sm:pt-4 px-3 sm:px-5 text-center relative z-[1]">
         <h3
           className="
-            text-xl sm:text-2xl lg:text-[36px] font-lato font-semibold
+            text-xl sm:text-2xl lg:text-[32px] font-lato font-semibold
             bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent
             transition-[filter] duration-300
             group-hover:brightness-110

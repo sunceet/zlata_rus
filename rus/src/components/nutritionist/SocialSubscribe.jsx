@@ -36,7 +36,7 @@ export default function SocialSubscribe() {
               className="hidden md:block absolute top-4 sm:top-6 right-4 sm:right-6 w-[120px] sm:w-[160px] lg:w-[176px] h-auto opacity-90 pointer-events-none select-none"
             />
 
-            {/* Шапка: аватар + имя + кнопки (в одну линию, уменьшаем размеры на мобиле) */}
+            {/* Шапка: аватар + имя + кнопки */}
             <div className="flex items-center gap-3 sm:gap-5 pr-0 md:pr-[140px] lg:pr-[160px]">
               {/* Аватар */}
               <img
@@ -60,8 +60,10 @@ export default function SocialSubscribe() {
                 <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                   {/* Telegram */}
                   <a
-                    href="#"
-                    className="relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md hover:shadow-lg transition"
+                    href="https://t.me/profiguru_fit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md transition hover:shadow-lg hover:scale-105 hover:brightness-110"
                     style={{
                       backgroundImage:
                         "linear-gradient(90deg, #7C622B 0%, #FFD170 100%)",
@@ -71,7 +73,7 @@ export default function SocialSubscribe() {
                     <img
                       src={telegram}
                       alt=""
-                      className="absolute left-3 sm:left-4 w-[20px] h-[20px] sm:w-[22px] sm:h-[22px]"
+                      className="absolute left-3 sm:left-4 w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] transition-transform group-hover:rotate-6"
                     />
                     <span className="font-lato pl-5 sm:pl-6 text-[15px] sm:text-[18px] xl:text-[23px] font-semibold">
                       Telegram
@@ -80,8 +82,10 @@ export default function SocialSubscribe() {
 
                   {/* Instagram */}
                   <a
-                    href="#"
-                    className="relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md hover:shadow-lg transition"
+                    href="https://www.instagram.com/dietolog_elselyukova?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center justify-center rounded-[14px] sm:rounded-[18px] h-[35px] sm:h-[52px] lg:h-[56px] px-4 sm:px-5 text-white shadow-md transition hover:shadow-lg hover:scale-105 hover:brightness-110"
                     style={{
                       backgroundImage:
                         "linear-gradient(90deg, #7C622B 0%, #FFD170 100%)",
@@ -91,7 +95,7 @@ export default function SocialSubscribe() {
                     <img
                       src={instagram}
                       alt=""
-                      className="top- absolute left-3 sm:left-4 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px]"
+                      className="absolute left-3 sm:left-4 w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] transition-transform group-hover:rotate-6"
                     />
                     <span className="font-lato pt-1 pl-6 sm:pl-7 text-[15px] sm:text-[18px] xl:text-[23px] font-semibold">
                       Instagram
@@ -108,10 +112,12 @@ export default function SocialSubscribe() {
               <p className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] ">
                 В наших соцсетях (и особенно в моем Telegram-канале{" "}
                 <a
-                  href="#"
-                  className="underline decoration-[#D7B56D] underline-offset-4"
+                  href="https://t.me/profiguru_fit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-[#D7B56D] underline-offset-4 hover:text-[#FFD170]"
                 >
-                  @profguru_ft
+                  @profiguru_fit
                 </a>
                 ) мы будем погружаться глубже в правильное питание.
               </p>
@@ -142,10 +148,12 @@ export default function SocialSubscribe() {
               <p className="font-lato text-[14px] sm:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[23px] leading-relaxed">
                 Подписывайтесь на телеграм{" "}
                 <a
-                  href="#"
-                  className="underline decoration-[#D7B56D] underline-offset-4"
+                  href="https://t.me/profiguru_fit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-[#D7B56D] underline-offset-4 hover:text-[#FFD170]"
                 >
-                  @profguru_ft
+                  @profiguru_fit
                 </a>
                 ! Уже в ближайших постах стартуем с детального разбора
                 подсолнечного и льняного масел — жду вас для обсуждений! Давайте

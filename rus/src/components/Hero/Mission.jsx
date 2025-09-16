@@ -98,7 +98,6 @@ const Mission = () => {
           </h3>
 
           <div className="mt-5 sm:mt-6 lg:mt-8">
-            {/* На xl–2xl: три карточки слева направо в один ряд */}
             <div
               className="
                 grid

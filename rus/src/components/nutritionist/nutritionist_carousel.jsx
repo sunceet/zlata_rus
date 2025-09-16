@@ -412,13 +412,15 @@ function HScrollCarousel({ slides }) {
           <button
             key={s.title}
             onClick={() => goto(i)}
-            className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm md:text-base
-                        transition-all
-                        ${
-                          i === active
-                            ? "bg-gradient-to-r from-[#1C3B3E] to-[#346d72] text-white shadow"
-                            : "bg-white/90 text-black/60 hover:bg-white"
-                        }`}
+            className={`cursor-pointer group px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm md:text-base
+                  transform-gpu transition duration-200 ease-out
+                  hover:scale-105 hover:brightness-110 hover:shadow-md active:scale-95
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D7B56D]/60
+                  ${
+                    i === active
+                      ? "bg-gradient-to-r from-[#1C3B3E] to-[#346d72] text-white shadow"
+                      : "bg-white/90 text-black/60 hover:bg-white"
+                  }`}
           >
             {s.titleShort ?? s.title}
           </button>

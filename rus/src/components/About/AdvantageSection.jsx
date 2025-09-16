@@ -34,7 +34,13 @@ const AdvantageSection = () => (
   >
     <div className="flex flex-col items-center">
       {/* Карточки */}
-      <div className="flex gap-22 mb-[60px]">
+      <div
+        className=" grid
+                grid-cols-1 sm:grid-cols-2
+                xl:grid-cols-3 2xl:grid-cols-3
+                gap-4 xl:gap-6 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-[160px]
+                items-stretch justify-items-stretch"
+      >
         {advantages.map((advantage, index) => (
           <AdvantageCard
             key={index}
@@ -47,13 +53,18 @@ const AdvantageSection = () => (
       </div>
 
       {/* Орнамент */}
-      <img src={vector} alt="Орнамент" className="w-[1520px] h-[34px]" />
-
+      <div className="hidden md:flex justify-center mt-8 lg:mt-10">
+        <img
+          src={vector}
+          alt="Орнамент"
+          className="w-[100%] max-w-[1560px] h-auto"
+        />
+      </div>
       {/* Заголовок */}
       <h2
-        className="mt-12 text-[40px] font-lato font-bold uppercase 
+        className="mt-12 text-[25px] md:text-[25px] lg:text-[30px] xl:text-[35px] 2xl:text-[40px] font-lato font-bold uppercase 
                  bg-gradient-to-r from-[#7C622B] to-[#FFD170] 
-                 bg-clip-text text-transparent tracking-wide text-center"
+                 bg-clip-text text-transparent text-center"
       >
         ПРЕИМУЩЕСТВО НАШИХ ПРОДУКТОВ
       </h2>

@@ -1,88 +1,325 @@
-import React, { useState } from "react";
-import arrow from "@/assets/arrow.svg";
+import React, { useState, useEffect, useRef } from "react";
+import arrow from "@/assets/arrow.svg"; // <-- добавили стрелку
 import vector from "@/assets/Vector.svg";
-import ProductCard from "./ProductCard";
-import { cards } from "./cardsData";
 
-// Константы для расчета, основанные на классах Tailwind CSS
-const CARD_WIDTH = 500;
-const CARD_MARGIN_X = 20; // mx-5 в TailwindCSS = 1.25rem = 20px
-const CARDS_IN_VIEW = 2;
-const CARD_TOTAL_WIDTH = CARD_WIDTH + CARD_MARGIN_X * 2; // 500 + 20 + 20 = 540
+// ====== ассеты ======
+import linen from "@/assets/linen.png";
+import oilLinen from "@/assets/oil-linen.png";
+import sesame from "@/assets/sesame.png";
+import oilSesame from "@/assets/oil-sesame.png";
+import sunflower from "@/assets/sunflower.png";
+import oilSunflower from "@/assets/oil-sunflower.png";
+import mustard from "@/assets/mustard.png";
+import oilMustard from "@/assets/oil-mustard.png";
+import flourSesame from "@/assets/flour-sesame.png";
+import flourLinen from "@/assets/flour-linen.png";
 
-const ProductCarousel = () => {
-  const [index, setIndex] = useState(0);
+// ====== товары ======
+const cards = [
+  {
+    title: "Льняное Масло",
+    bg: linen,
+    oil: oilLinen,
+    points: [
+      "• Омега-3 жирные кислоты",
+      "• Поддержка сердца и сосудов",
+      "• Для кожи и волос",
+      "• Иммуномодулятор",
+    ],
+  },
+  {
+    title: "Кунжутное масло",
+    bg: sesame,
+    oil: oilSesame,
+    points: [
+      "• Полезно для костей",
+      "• Укрепляет волосы",
+      "• Антиоксиданты",
+      "• Ореховый вкус",
+    ],
+  },
+  {
+    title: "Подсолнечное масло",
+    bg: sunflower,
+    oil: oilSunflower,
+    points: [
+      "• Полезные жирные кислоты и витамины",
+      "• Улучшает состояние кожи и волос",
+      "• Натуральный продукт",
+      "• Яркий вкус и аромат",
+    ],
+  },
+  {
+    title: "Горчичное масло",
+    bg: mustard,
+    oil: oilMustard,
+    points: [
+      "• Витамины групп B и E",
+      "• Горчичный вкус",
+      "• Укрепляет иммунитет",
+      "• Для кожи и волос",
+    ],
+  },
+  {
+    title: "Кунжутная мука",
+    bg: sesame,
+    oil: flourSesame,
+    points: [
+      "• Богата кальцием, магнием",
+      "• Для костей и нервной системы",
+      "• Ореховый вкус",
+      "• Антиоксиданты",
+    ],
+  },
+  {
+    title: "Льняная мука",
+    bg: linen,
+    oil: flourLinen,
+    points: [
+      "• Очищение организма",
+      "• Клетчатка и белок",
+      "• Поддержка ЖКТ",
+      "• Снижение веса",
+    ],
+  },
+];
 
-  const next = () => {
-    if (index < cards.length - CARDS_IN_VIEW) {
-      setIndex(index + 2);
+function ProductCarousel() {
+  const GAP_PX = 24;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [itemsPerView, setItemsPerView] = useState(1);
+
+  // drag state
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0); // px
+  const startXRef = useRef(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () =>
+      setItemsPerView(window.innerWidth >= 768 ? 2 : 1);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const totalSlides = Math.ceil(cards.length / itemsPerView);
+
+  const goTo = (page) => {
+    const safe = ((page % totalSlides) + totalSlides) % totalSlides;
+    setCurrentIndex(safe);
+  };
+
+  const nextSlide = () => {
+    if (!isAnimating && currentIndex < totalSlides - 1) {
+      setIsAnimating(true);
+      goTo(currentIndex + 1);
+    }
+  };
+  const prevSlide = () => {
+    if (!isAnimating && currentIndex > 0) {
+      setIsAnimating(true);
+      goTo(currentIndex - 1);
     }
   };
 
-  const prev = () => {
-    if (index > 0) {
-      setIndex(index - 2);
-    }
+  useEffect(() => {
+    const t = setTimeout(() => setIsAnimating(false), 450);
+    return () => clearTimeout(t);
+  }, [currentIndex]);
+
+  const translatePercent = currentIndex * 100;
+
+  // --- touch/pointer handlers ---
+  const onStart = (clientX) => {
+    setIsDragging(true);
+    startXRef.current = clientX;
+    setDragOffset(0);
   };
+  const onMove = (clientX) => {
+    if (!isDragging) return;
+    const dx = clientX - startXRef.current;
+    setDragOffset(dx);
+  };
+  const onEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+
+    const threshold = 60; // px
+    if (dragOffset <= -threshold && currentIndex < totalSlides - 1) {
+      nextSlide();
+    } else if (dragOffset >= threshold && currentIndex > 0) {
+      prevSlide();
+    }
+    setDragOffset(0);
+  };
+
+  // helpers for events
+  const handleTouchStart = (e) => onStart(e.touches[0].clientX);
+  const handleTouchMove = (e) => onMove(e.touches[0].clientX);
+  const handleTouchEnd = () => onEnd();
+
+  const handlePointerDown = (e) => {
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+    onStart(e.clientX);
+  };
+  const handlePointerMove = (e) => onMove(e.clientX);
+  const handlePointerUp = () => onEnd();
 
   return (
-    <div className="relative w-full flex flex-col items-center mt-12">
-      {/* Ширина контейнера теперь точно равна 2 карточкам по 540px */}
-      <div className="overflow-hidden w-[1080px]">
-        <div
-          className="flex transition-transform duration-700 ease-in-out"
-          style={{
-            // Смещение учитывает полную ширину одной карточки
-            transform: `translateX(-${index * CARD_TOTAL_WIDTH}px)`,
-          }}
-        >
-          {cards.map((card, i) => (
-            <ProductCard key={i} {...card} />
-          ))}
+    <div className="relative w-full overflow-hidden">
+      <div className="mx-auto px-4 py-8 md:py-16 max-w-[1400px]">
+        <div className="relative">
+          {/* Вьюпорт */}
+          <div
+            className="overflow-hidden"
+            ref={containerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+          >
+            {/* Лента */}
+            <div
+              className="flex will-change-transform"
+              style={{
+                columnGap: GAP_PX,
+                paddingLeft: GAP_PX / 2,
+                paddingRight: GAP_PX / 2,
+                transition: isDragging ? "none" : "transform 450ms ease-out",
+                transform: `translateX(calc(-${translatePercent}% + ${dragOffset}px))`,
+              }}
+            >
+              {cards.map((card, i) => {
+                const isFlour = card.title.toLowerCase().includes("мука");
+                return (
+                  <div
+                    key={i}
+                    className="flex-shrink-0"
+                    style={{
+                      width:
+                        itemsPerView === 2
+                          ? `calc((100% - ${GAP_PX}px) / 2)`
+                          : "100%",
+                    }}
+                  >
+                    {/* Карточка */}
+                    <div className="relative h-[400px] lg:h-[510px] md:h-[520px] bg-white rounded-[32px] overflow-hidden p-5 md:p-6 pb-[160px] md:pb-[180px]">
+                      {/* фон */}
+                      <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: `url(${card.bg})` }}
+                      />
+
+                      {/* Контент */}
+                      <div className="relative z-10 grid grid-cols-2 gap-4 h-full">
+                        {/* Текст + список поверх фото */}
+                        <div className="w-full overflow-x-visible">
+                          <h3 className="absolute top-5 lg:left-5 lg:right-5 z-20 text-[22px] lg:text-[30px] xl:text-[33px] font-lato font-semibold text-[#000000] uppercase leading-tight whitespace-nowrap">
+                            {card.title}
+                          </h3>
+
+                          <ul className="absolute -left-2 top-6 sm:left-2 sm:right-5 sm:top-20 z-20 text-[13px] font-light font-lato lg:text-[14px] xl:text-[18px] text-[#555555] mt-20 leading-7 lg:leading-9">
+                            {card.points.map((p, j) => (
+                              <li key={j}>{p}</li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Фото */}
+                        <div className="col-span-1 flex items-center justify-end">
+                          <img
+                            src={card.oil}
+                            alt={card.title}
+                            className={
+                              "object-contain drop-shadow " +
+                              (card.title.toLowerCase().includes("мука")
+                                ? "max-h-full xl:max-h-[25rem] 2xl:max-h-[28rem] translate-x-5 translate-y-39 2xl:translate-x-6 2xl:translate-y-10 xl:translate-x-6 xl:translate-y-22 lg:translate-x-6 lg:translate-y-39"
+                                : "max-h-[17rem] lg:max-h-[24rem] xl:max-h-[28rem] 2xl:max-h-[29rem] translate-y-22 translate-x-2 lg:translate-y-18 lg:translate-x-0 xl:translate-x-0 xl:translate-y-2 2xl:translate-x-0 2xl:-translate-y-1")
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      {/* Кнопка снизу (мука — меньше на телефоне) */}
+                      <div className="absolute bottom-[20px] lg:bottom-[30px] left-5 right-5 md:left-6 md:right-auto">
+                        <button
+                          className={
+                            (card.title.toLowerCase().includes("мука")
+                              ? "w-[160px] h-9 text-[11px] "
+                              : "w-[200px] h-10 text-[12px] ") +
+                            "lg:w-[240px] lg:h-[52px] lg:text-[14px] xl:w-[280px] xl:h-[52px] xl:text-[16px] " +
+                            "rounded-full font-semibold uppercase font-lato bg-gradient-to-r from-[#7C622B] to-[#FFD170] text-black hover:opacity-90 transition"
+                          }
+                        >
+                          Узнать подробнее
+                        </button>
+                      </div>
+                    </div>
+                    {/* /Карточка */}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {totalSlides > 1 && (
+            <>
+              <button
+                onClick={prevSlide}
+                disabled={currentIndex === 0}
+                aria-label="Предыдущие товары"
+                className="hidden lg:block group absolute left-2 xl:-left-10 top-1/2 -translate-y-1/2 z-30 p-2"
+              >
+                <img
+                  src={arrow}
+                  alt=""
+                  className="w-8 h-8 rotate-180 opacity-80 group-hover:opacity-100 transition"
+                />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                disabled={currentIndex === totalSlides - 1}
+                aria-label="Следующие товары"
+                className="hidden lg:block group absolute right-2 xl:-right-10 top-1/2 -translate-y-1/2 z-30 p-2"
+              >
+                <img
+                  src={arrow}
+                  alt=""
+                  className="w-8 h-8 opacity-80 group-hover:opacity-100 transition"
+                />
+              </button>
+            </>
+          )}
+
+          {/* Индикатор снизу (прогресс-бар по слайдам) */}
+          <div className="mt-6 md:mt-8 flex justify-center">
+            <div className="relative w-[72%] sm:w-[68%] md:w-[60%] max-w-[640px] h-2 bg-black/10 rounded-full overflow-hidden">
+              <div
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#7C622B] to-[#FFD170] rounded-full transition-transform duration-500 ease-out"
+                style={{
+                  width: `${100 / totalSlides}%`,
+                  transform: `translateX(${currentIndex * 100}%)`,
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* стрелки */}
-      <button
-        onClick={prev}
-        disabled={index === 0}
-        className="absolute left-80 top-[260px] -translate-y-1/2 z-20 cursor-pointer"
-      >
-        <img
-          src={arrow}
-          alt="prev"
-          className="w-8 h-8 rotate-180 opacity-80 hover:opacity-100 transition"
-        />
-      </button>
-      <button
-        onClick={next}
-        disabled={index >= cards.length - CARDS_IN_VIEW}
-        className="absolute right-80 top-[260px] -translate-y-1/2 z-20 cursor-pointer"
-      >
-        <img
-          src={arrow}
-          alt="next"
-          className="w-8 h-8 opacity-80 hover:opacity-100 transition"
-        />
-      </button>
-
-      {/* индикатор */}
-      <div className="relative w-[600px] h-2 mt-12 bg-white/50 rounded-full overflow-hidden">
-        <div
-          className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-[#7C622B] to-[#FFD170] rounded-full transition-all duration-700 ease-in-out"
-          style={{ transform: `translateX(${(index / 2) * 100}%)` }}
-        />
-      </div>
-
-      <div className="items-center">
+      <div className="hidden sm:flex justify-center -mt-5">
         <img
           src={vector}
           alt="Орнамент"
-          className="mt-10 w-[1520px] h-[34px]"
+          className="w-full max-w-[1540px] h-[24px] lg:h-[34px] object-contain"
         />
       </div>
     </div>
   );
-};
+}
 
 export default ProductCarousel;
