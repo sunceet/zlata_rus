@@ -163,7 +163,7 @@ function StoryCard({ slide, showSwipeHint, index }) {
                   className="w-[120px] sm:w-[140px] md:w-[160px] h-[120px] sm:h-[140px] md:h-[160px] object-cover rounded-full ml-[2px] mt-[2px]"
                 />
                 <div className="ml-[16px] md:ml-[20px] mt-2">
-                  <h3 className="text-[32px] sm:text-[42px] md:text-[48px] xl:text-[55px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
+                  <h3 className="text-[32px] sm:text-[42px] md:text-[48px] xl:text-[45px] 2xl:text-[48px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent">
                     Руслан Снигур
                   </h3>
                   <p className="text-[14px] sm:text-[18px] md:text-[20px] font-lato text-[#EDD196] mt-1.5">
@@ -293,7 +293,7 @@ function HScrollCarousel({ slides }) {
     <>
       <div
         ref={trackRef}
-        className="relative w-full overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-px-1 sm:scroll-px-6 md:scroll-px-10"
+        className="relative w-full overflow-x-auto no-scrollbar snap-x snap-mandatory -mt-7 scroll-px-1 sm:scroll-px-6 md:scroll-px-10"
       >
         <div className="flex items-stretch gap-1 sm:gap-6 md:gap-8 sm:px-6 md:px-10">
           <div
@@ -325,7 +325,7 @@ function HScrollCarousel({ slides }) {
       </div>
 
       {/* Индикаторы / кнопки навигации */}
-      <div className="flex justify-center flex-wrap ml-2 xl:ml-0 gap-1 md:gap-3 mt-6 md:mt-8">
+      <div className="flex justify-center flex-wrap  xl:ml-0 gap-1 md:gap-3 mt-6 md:mt-8">
         {slides.map((s, i) => (
           <button
             key={s.title}

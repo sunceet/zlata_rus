@@ -29,7 +29,7 @@ const advantages = [
 
 const AdvantageSection = () => (
   <div
-    className="w-full bg-cover bg-center py-10"
+    className="w-full bg-cover bg-center py-10 "
     style={{ backgroundImage: `url(${bgGreen})` }}
   >
     <div className="flex flex-col items-center">
@@ -57,7 +57,7 @@ const AdvantageSection = () => (
         <img
           src={vector}
           alt="Орнамент"
-          className="w-[100%] max-w-[1560px] h-auto"
+          className="xl:w-[94%] 2xl:w-[100%] max-w-[1540px] h-[24px] lg:h-[34px] object-contain"
         />
       </div>
       {/* Заголовок */}

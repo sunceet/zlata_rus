@@ -49,7 +49,6 @@ export default function About() {
                 src={ruslanImg}
                 alt="Руслан Снигур"
                 className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] xl:w-[250px] xl:h-[250px] object-contain"
-                loading="lazy"
               />
             </div>
 
@@ -86,8 +85,7 @@ export default function About() {
             <img
               src={heartSvg}
               alt="heart"
-              className="w-[120px] h-[110px] object-contain"
-              loading="lazy"
+              className="heartbeat w-[120px] h-[110px] object-contain"
             />
           </div>
 
@@ -100,7 +98,6 @@ export default function About() {
               src={heartSvg}
               alt="heart"
               className="w-[240px] h-[219px] heartbeat object-contain"
-              loading="lazy"
             />
           </div>
 
@@ -110,7 +107,6 @@ export default function About() {
               src={vector}
               alt="Орнамент"
               className="w-full max-w-[1520px] h-[24px] sm:h-[28px] lg:h-[34px] object-contain"
-              loading="lazy"
             />
           </div>
         </div>
@@ -125,8 +121,8 @@ export default function About() {
           backgroundPosition: "center",
         }}
       >
-        <div className="mx-auto w-full max-w-[1920px] py-10 sm:py-14 lg:py-16 xl:h-[750px]">
-          <div className="px-4 xl:mt-[1px] xl:ml-[160px]">
+        <div className="mx-auto w-full max-w-[1920px] py-10 sm:py-14 lg:py-16 2xl:h-[750px]">
+          <div className="px-4 xl:mt-[1px] xl:ml-[10px] 2xl:ml-[160px]">
             <h4 className="text-sm sm:text-base lg:text-xl xl:text-[24px] font-semibold text-[#19474B] uppercase font-lato">
               ЧТО МЫ ПРОИЗВОДИМ?
             </h4>

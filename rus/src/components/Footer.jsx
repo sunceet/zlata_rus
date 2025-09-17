@@ -20,25 +20,25 @@ const Footer = () => {
           {/* Текстовые ссылки */}
           <div className="flex flex-col gap-[10px] sm:gap-[15px] ml-[30px] font-lato text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] font-weight-[350px]">
             <a
-              href="#"
+              href="/#/"
               className="text-[#FFFFFF] no-underline hover:text-[#D7B56D] visited:text-[#FFFFFF] active:text-[#FFFFFF]"
             >
-              УСЛОВИЯ ИСПОЛЬЗОВАНИЯ
+              ГЛАВНАЯ
             </a>
             <a
-              href="#"
+              href="/#/products"
               className="text-[#FFFFFF] no-underline hover:text-[#D7B56D] visited:text-[#FFFFFF] active:text-[#FFFFFF]"
             >
-              КОНФИДЕНЦИАЛЬНОСТЬ
+              ПРОДУКЦИЯ
             </a>
             <a
-              href="#"
+              href="/#/advantages"
               className="text-[#FFFFFF] no-underline hover:text-[#D7B56D] visited:text-[#FFFFFF] active:text-[#FFFFFF]"
             >
-              ПОЛИТИКА ИСПОЛЬЗОВАНИЯ ФАЙЛОВ COOKIE
+              ПРЕИМУЩЕСТВА
             </a>
             <a
-              href="#contacts"
+              href="/#/contacts"
               className="text-[#FFFFFF] no-underline hover:text-[#D7B56D] visited:text-[#FFFFFF] active:text-[#FFFFFF]"
             >
               КОНТАКТЫ

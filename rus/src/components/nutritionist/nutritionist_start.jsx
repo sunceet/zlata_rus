@@ -39,7 +39,7 @@ export default function Nutritionist() {
             <h1 className="text-[13px] sm:text-[20px] lg:text-[24px] font-lato font-bold bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent leading-tight">
               ПРИВЕТ, ДРУЗЬЯ!
             </h1>
-            <p className="mt-2 text-[17px] sm:text-[28px] lg:text-[48px] text-[#D7B56D] font-lato">
+            <p className="mt-2 text-[18px] sm:text-[28px] lg:text-[40px] text-[#D7B56D] font-lato">
               Меня зовут Елена Селюкова, и я – нутрициолог
             </p>
 

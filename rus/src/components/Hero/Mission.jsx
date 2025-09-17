@@ -54,7 +54,7 @@ const Mission = () => {
           </h1>
 
           <h2 className="mt-2 sm:mt-3 uppercase">
-            <span className="font-lato font-bold  bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-[44px]">
+            <span className="font-lato font-bold  bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent text-xl sm:text-3xl md:text-4xl lg:text-[44px]">
               КАЧЕСТВО АЛТАЯ – НА ВЕСЬ МИР
             </span>
           </h2>
@@ -77,7 +77,7 @@ const Mission = () => {
         </header>
 
         {/* Орнамент — максимум тоже +200px */}
-        <div className="hidden md:flex justify-center mt-8 lg:mt-10">
+        <div className="hidden md:flex justify-center mt-8 lg:mt-20">
           <img
             src={vector}
             alt="Орнамент"

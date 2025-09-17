@@ -33,6 +33,20 @@ function useMedia(query) {
   return matches;
 }
 
+/* -------- helper: разнести на 2 строки (по первому пробелу) -------- */
+function TwoLine({ text }) {
+  if (!text) return null;
+  const i = text.indexOf(" ");
+  if (i === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, i)}
+      <br />
+      {text.slice(i + 1)}
+    </>
+  );
+}
+
 /* --------------------------------- данные --------------------------------- */
 const products = [
   { id: 1, slug: "linen_oil", name: "Масло льняное", image: oilLinen },
@@ -62,7 +76,7 @@ const products = [
 
 /* ------------------------------ карточка товара --------------------------- */
 function ProductCard({ name, image, type, insetOffset = 0 }) {
-  const baseTop = type === "flour" ? 90 : 84; // базовый отступ «подложки»
+  const baseTop = type === "flour" ? 90 : 84;
   const imageShift =
     type === "flour"
       ? "mt-[20px] sm:mt-[115px] lg:mt-[1px] max-h-[200px] sm:max-h-[600px] lg:max-h-[350px]"
@@ -83,13 +97,16 @@ function ProductCard({ name, image, type, insetOffset = 0 }) {
       <div className="pt-3 sm:pt-4 px-3 sm:px-5 text-center relative z-[1]">
         <h3
           className="
-            text-xl sm:text-2xl lg:text-[32px] font-lato font-semibold
+            text-[22px] sm:text-2xl lg:text-[32px] font-lato font-semibold
             bg-gradient-to-r from-[#7C622B] to-[#FFD170] bg-clip-text text-transparent
-            transition-[filter] duration-300
-            group-hover:brightness-110
+            leading-tight
           "
         >
-          {name}
+          {/* до sm — 2 строки, c sm — 1 строка */}
+          <span className="sm:hidden">
+            <TwoLine text={name} />
+          </span>
+          <span className="hidden sm:inline">{name}</span>
         </h3>
       </div>
 
@@ -135,7 +152,7 @@ export default function ProductsPage() {
 
   const cols = isLg ? 3 : 2;
   const STEP_BASE = 8; // <1024
-  const STEP_LG = 12; // 1024–1279 — чуть меньше, чтобы точно не «слипались»
+  const STEP_LG = 12; // 1024–1279
   const STEP_XL = 10; // ≥1280
   const step = !isLg ? STEP_BASE : !isXl ? STEP_LG : STEP_XL;
 
@@ -158,7 +175,7 @@ export default function ProductsPage() {
           ПРОДУКЦИЯ
         </h1>
 
-        {/* Сетка карточек — без внутренних px, паддинги только у внешнего контейнера */}
+        {/* Сетка карточек */}
         <div className="mt-8 sm:mt-10">
           <div
             className="

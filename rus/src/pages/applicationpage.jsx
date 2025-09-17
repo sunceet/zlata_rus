@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // --- ASSETS ---
 import about from "@/assets/about.png";
@@ -26,7 +26,6 @@ function splitPointsToDescBenefit(points = []) {
     benefit: points.slice(mid).join(" "),
   };
 }
-
 function FlipCard({
   image,
   title,
@@ -40,13 +39,43 @@ function FlipCard({
   benefitText = "",
 }) {
   const [flipped, setFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const cardRef = useRef(null);
+
+  // определяем тип устройства
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // авто-закрытие при клике вне карточки (только на мобиле)
+  useEffect(() => {
+    if (!flipped || !isMobile) return;
+
+    const handleClickOutside = (e) => {
+      if (cardRef.current && !cardRef.current.contains(e.target)) {
+        setFlipped(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [flipped, isMobile]);
 
   return (
     <div
+      ref={cardRef}
       className="relative w-full h-[320px] sm:h-[380px] lg:h-[414px] [perspective:1000px] cursor-pointer"
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      onClick={() => setFlipped((v) => !v)}
+      onMouseEnter={!isMobile ? () => setFlipped(true) : undefined}
+      onMouseLeave={!isMobile ? () => setFlipped(false) : undefined}
+      onClick={isMobile ? () => setFlipped((v) => !v) : undefined}
     >
       <div
         className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${
@@ -80,13 +109,13 @@ function FlipCard({
         >
           {backMode === "list" ? (
             <ul
-              className="w-[100%] sm:w-[80%] mx-auto list-none font-lato text-[12px] sm:text-[16px] lg:text-[20px] font-[350] flex flex-col items-start justify-center gap-2"
+              className="w-[100%] sm:w-[80%] mx-auto list-none font-lato text-[12px] sm:text-[16px] xl:text-[18px] 2xl:text-[20px] font-[350] flex flex-col items-start justify-center gap-2"
               style={{ color: backTextColor }}
             >
               {points?.map((p, i) => (
                 <li key={i} className="flex items-start gap-2.5">
-                  <span className="mt-[7px] sm:mt-[8px] block  h-[4px] w-[4px] sm:w-[8px] sm:h-[8px] rounded-full bg-[#1C3B3E] shrink-0" />
-                  <span className="">{p}</span>
+                  <span className="mt-[7px] sm:mt-[8px] block h-[4px] w-[4px] sm:w-[8px] sm:h-[8px] rounded-full bg-[#1C3B3E] shrink-0" />
+                  <span>{p}</span>
                 </li>
               ))}
             </ul>
@@ -333,7 +362,7 @@ export default function ApplicationPage() {
               <img
                 src={heart}
                 alt=""
-                className="w-[240px] sm:w-[300px] lg:w-[372px] h-auto heartbeat"
+                className="w-[240px] sm:w-[300px] 2xl:w-[330px] h-auto heartbeat"
               />
             </div>
             {/* правая карточка */}
@@ -460,7 +489,7 @@ export default function ApplicationPage() {
               <img
                 src={heart2}
                 alt=""
-                className="w-[300px] lg:w-[372px] h-auto heartbeat"
+                className="w-[240px] sm:w-[300px] 2xl:w-[330px] h-auto heartbeat"
               />
             </div>
             {(() => {

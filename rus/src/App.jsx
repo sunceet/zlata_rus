@@ -11,12 +11,14 @@ import Nutritionist from "@/pages/nutritionist.jsx";
 import Contacts from "@/pages/contacts.jsx";
 import Advantages from "@/pages/advantages";
 import About from "@/pages/About";
+import ScrollToTop from "@/components/ScrollToTop";
 
 import bgGreen from "@/assets/bg-green.svg";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <main
         className="font-lato pt-[100px] lg:pt-[225px] bg-cover bg-center"

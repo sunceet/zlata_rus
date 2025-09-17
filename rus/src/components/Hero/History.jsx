@@ -10,7 +10,7 @@ const History = () => {
     <section
       id="history"
       ref={historyRef}
-      className="relative w-full min-h-[1050px] bg-cover bg-center text-[#19474B] pt-[60px] pb-5 "
+      className="relative w-full xl:min-h-[1070px] 2xl:min-h-[1020px] bg-cover bg-center text-[#19474B] pt-5 sm:pt-[60px] pb-5 "
       style={{ backgroundImage: `url(${bgYellow})` }}
     >
       <div className="relative z-10">

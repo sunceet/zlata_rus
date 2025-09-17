@@ -1,7 +1,7 @@
 import aboutImage from "@/assets/about.png";
 
 const AboutHero = () => (
-  <div className="relative w-full h-[540px]">
+  <div className="relative w-full h-[340px] sm:h-[540px]">
     <img
       src={aboutImage}
       alt="О бренде"
