@@ -1,5 +1,10 @@
-import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,12 +17,31 @@ import Contacts from "@/pages/contacts.jsx";
 import Advantages from "@/pages/advantages";
 import About from "@/pages/About";
 import ScrollToTop from "@/components/ScrollToTop";
+import Preloader from "@/components/Preloader";
 
 import bgGreen from "@/assets/bg-green.svg";
 
-function App() {
+function AppContent() {
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  // Показываем прелоадер при каждом изменении маршрута
+  useEffect(() => {
+    setIsLoading(true);
+  }, [location.pathname]);
+
+  const handlePreloaderComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <Router>
+    <>
+      {isLoading && (
+        <Preloader
+          key={location.pathname}
+          onComplete={handlePreloaderComplete}
+        />
+      )}
       <ScrollToTop />
       <Header />
       <main
@@ -62,6 +86,14 @@ function App() {
         </Routes>
       </main>
       <Footer />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
