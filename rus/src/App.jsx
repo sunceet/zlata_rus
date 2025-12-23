@@ -20,6 +20,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Preloader from "@/components/Preloader";
 import NotificationModal from "@/components/NotificationModal";
 import PromoPage from "@/pages/PromoPage";
+import TourPage from "@/pages/tour";
 
 import bgGreen from "@/assets/bg-green.svg";
 
@@ -98,6 +99,7 @@ function AppContent() {
           <Route path="/application" element={<ApplicationPage />} />
           <Route path="/nutritionist" element={<Nutritionist />} />
           <Route path="/promo" element={<PromoPage />} />
+          <Route path="/tour" element={<TourPage />} />
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
