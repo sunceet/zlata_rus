@@ -21,8 +21,10 @@ import Preloader from "@/components/Preloader";
 import NotificationModal from "@/components/NotificationModal";
 import PromoPage from "@/pages/PromoPage";
 import TourPage from "@/pages/tour";
+import Poetry from "@/pages/poetry";
 
 import bgGreen from "@/assets/bg-green.svg";
+import bgYellow from "@/assets/bg-yellow.svg";
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +48,9 @@ function AppContent() {
     setIsLoading(false);
   };
 
+  const isPoetryPage = location.pathname === "/poetry";
+  const currentBg = isPoetryPage ? bgYellow : bgGreen;
+
   return (
     <>
       {isLoading && (
@@ -62,7 +67,7 @@ function AppContent() {
       />
       <main
         className="font-lato pt-[100px] lg:pt-[225px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgGreen})` }}
+        style={{ backgroundImage: `url(${currentBg})` }}
       >
         <Routes>
           <Route path="/products" element={<ProductsPage />} />
@@ -100,6 +105,7 @@ function AppContent() {
           <Route path="/nutritionist" element={<Nutritionist />} />
           <Route path="/promo" element={<PromoPage />} />
           <Route path="/tour" element={<TourPage />} />
+          <Route path="/poetry" element={<Poetry />} />
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
