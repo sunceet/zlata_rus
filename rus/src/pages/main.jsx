@@ -63,13 +63,13 @@ export default function About() {
 
               <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 justify-center xl:justify-start">
                 <a
-                  href="http://localhost:5173/#/products"
+                  href="https://zlata-rus.ru/#/products"
                   className="px-6 py-3 sm:px-8 sm:py-4 rounded-[20px] sm:rounded-[24px] bg-[#D7B56D] text-[16px] sm:text-[20px] text-[#1C3B3E] font-semibold transition-colors duration-300 hover:bg-[#c7a75d] hover:text-white"
                 >
                   О продукциях
                 </a>
                 <a
-                  href="http://localhost:5173/#/about"
+                  href="https://zlata-rus.ru/#/about"
                   className="px-6 py-3 sm:px-8 sm:py-4 rounded-[20px] sm:rounded-[24px] bg-[#D7B56D] text-[16px] sm:text-[20px] text-[#1C3B3E] font-semibold transition-colors duration-300 hover:bg-[#c7a75d] hover:text-white"
                 >
                   О бренде

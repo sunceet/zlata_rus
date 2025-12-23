@@ -19,6 +19,7 @@ const Header = () => {
     { name: "ПРЕИМУЩЕСТВА", href: "/advantages" },
     { name: "ПРИМЕНЕНИЕ И ПОЛЬЗА", href: "/application" },
     { name: "НУТРИЦОЛОГ", href: "/nutritionist" },
+    { name: "АКЦИИ", href: "/promo" },
     { name: "КОНТАКТЫ", href: "/contacts" },
   ];
 
@@ -57,9 +58,8 @@ const Header = () => {
           {/* ЛОГО */}
           <Link
             to="/"
-            className={`block relative ${
-              isDesktop ? "w-[220px] h-[110px]" : "w-[200px] h-[80px]"
-            }`}
+            className={`block relative ${isDesktop ? "w-[220px] h-[110px]" : "w-[200px] h-[80px]"
+              }`}
           >
             {isDesktop ? (
               <>
@@ -97,31 +97,28 @@ const Header = () => {
             <span
               className={`absolute block h-[2px] w-11 rounded-full bg-[#D7B56D] 
                           transition-all duration-300 ease-out 
-                          ${
-                            menuOpen
-                              ? "translate-y-0 rotate-45"
-                              : "-translate-y-2.5 rotate-0"
-                          }`}
+                          ${menuOpen
+                  ? "translate-y-0 rotate-45"
+                  : "-translate-y-2.5 rotate-0"
+                }`}
             />
             {/* Линия 2 */}
             <span
               className={`absolute block h-[2px] w-11 rounded-full bg-[#D7B56D]
                           transition-all duration-300 ease-out 
-                          ${
-                            menuOpen
-                              ? "opacity-0 scale-x-0"
-                              : "opacity-100 scale-x-100"
-                          }`}
+                          ${menuOpen
+                  ? "opacity-0 scale-x-0"
+                  : "opacity-100 scale-x-100"
+                }`}
             />
             {/* Линия 3 */}
             <span
               className={`absolute block h-[2px] w-11 rounded-full bg-[#D7B56D]
                           transition-all duration-300 ease-out 
-                          ${
-                            menuOpen
-                              ? "translate-y-0 -rotate-45"
-                              : "translate-y-2.5 rotate-0"
-                          }`}
+                          ${menuOpen
+                  ? "translate-y-0 -rotate-45"
+                  : "translate-y-2.5 rotate-0"
+                }`}
             />
           </button>
         </div>
@@ -137,10 +134,9 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className={`relative inline-block text-[18px] font-lato transition-colors duration-300 
-                      ${
-                        active
-                          ? "text-[#FFD170]"
-                          : "text-[#D7B56D] hover:text-[#FFD170]"
+                      ${active
+                        ? "text-[#FFD170]"
+                        : "text-[#D7B56D] hover:text-[#FFD170]"
                       }`}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -171,10 +167,9 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`relative inline-block font-lato py-1 px-2 text-[18px] transition-colors duration-300 
-                    ${
-                      active
-                        ? "text-[#FFD170]"
-                        : "text-[#D7B56D] hover:text-[#FFD170]"
+                    ${active
+                      ? "text-[#FFD170]"
+                      : "text-[#D7B56D] hover:text-[#FFD170]"
                     }`}
                   style={{
                     marginRight: index < navItems.length - 1 ? "40px" : 0,

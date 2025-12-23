@@ -18,17 +18,28 @@ import Advantages from "@/pages/advantages";
 import About from "@/pages/About";
 import ScrollToTop from "@/components/ScrollToTop";
 import Preloader from "@/components/Preloader";
+import NotificationModal from "@/components/NotificationModal";
+import PromoPage from "@/pages/PromoPage";
 
 import bgGreen from "@/assets/bg-green.svg";
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
 
   // Показываем прелоадер при каждом изменении маршрута
   useEffect(() => {
     setIsLoading(true);
   }, [location.pathname]);
+
+  useEffect(() => {
+    // Open modal after a short delay or immediately
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handlePreloaderComplete = () => {
     setIsLoading(false);
@@ -44,6 +55,10 @@ function AppContent() {
       )}
       <ScrollToTop />
       <Header />
+      <NotificationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       <main
         className="font-lato pt-[100px] lg:pt-[225px] bg-cover bg-center"
         style={{ backgroundImage: `url(${bgGreen})` }}
@@ -82,6 +97,7 @@ function AppContent() {
           <Route path="/advantages" element={<Advantages />} />
           <Route path="/application" element={<ApplicationPage />} />
           <Route path="/nutritionist" element={<Nutritionist />} />
+          <Route path="/promo" element={<PromoPage />} />
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
