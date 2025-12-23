@@ -87,62 +87,56 @@ export default function TourPage() {
 
             {/* Content Container */}
             <div className="w-full max-w-[1920px] flex flex-col px-4 md:px-[160px] relative">
-                <h2
-                    className="mt-[99px] font-bold"
-                    style={{
-                        color: 'rgba(215, 181, 109, 1)',
-                        fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
-                        fontSize: 'clamp(1rem, 2.5vw, 24px)'
-                    }}
-                >
-                    Экспедиция в свой внутренний мир
-                </h2>
+                <div className="flex flex-col lg:flex-row lg:justify-between items-start relative">
+                    <div className="w-full lg:max-w-[1000px] flex flex-col z-10">
+                        <h2
+                            className="mt-[40px] lg:mt-[99px] font-bold"
+                            style={{
+                                color: 'rgba(215, 181, 109, 1)',
+                                fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
+                                fontSize: 'clamp(1rem, 2.5vw, 24px)'
+                            }}
+                        >
+                            Экспедиция в свой внутренний мир
+                        </h2>
 
-                <h1
-                    className="mt-[14px] font-bold bg-clip-text text-transparent"
-                    style={{
-                        fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
-                        fontSize: 'clamp(1.5rem, 5vw, 48px)',
-                        background: 'linear-gradient(90deg, #7C622B 0%, #FFD170 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent'
-                    }}
-                >
-                    Собери свой Алтай
-                </h1>
+                        <h1
+                            className="mt-[14px] font-bold bg-clip-text text-transparent"
+                            style={{
+                                fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
+                                fontSize: 'clamp(1.5rem, 5vw, 48px)',
+                                background: 'linear-gradient(90deg, #7C622B 0%, #FFD170 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent'
+                            }}
+                        >
+                            Собери свой Алтай
+                        </h1>
 
-                <div
-                    className="mt-[28px] w-full max-w-[1124px] min-h-[288px] font-lato font-normal text-[20px] md:text-[24px] leading-[32px] flex flex-col gap-6"
-                    style={{ color: 'rgba(215, 181, 109, 1)' }}
-                >
-                    <p>
-                        Мы верим, что премиальные масла и здоровое питание - это только начало. Наша настоящая цель - изменение жизни через изменение сознания.
-                    </p>
-                    <p>
-                        Поэтому мы создали инновационный подход, где сила продукта встречается с силой мысли. Мы строим комьюнити не вокруг покупок, а вокруг ценностей: осознанности, гармонии с природой и стремления к лучшей версии себя.
-                    </p>
-                    <p>
-                        С нами выгодно вдвойне: вы получаете не только эталонное качество с Алтая, но и возможность выиграть путешествие, которое перевернет ваш внутренний мир.
-                    </p>
-                </div>
+                        <div
+                            className="mt-[28px] w-full font-lato font-normal text-[20px] md:text-[24px] leading-[32px] flex flex-col gap-6"
+                            style={{ color: 'rgba(215, 181, 109, 1)' }}
+                        >
+                            <p>
+                                Мы верим, что премиальные масла и здоровое питание - это только начало. Наша настоящая цель - изменение жизни через изменение сознания.
+                            </p>
+                            <p>
+                                Поэтому мы создали инновационный подход, где сила продукта встречается с силой мысли. Мы строим комьюнити не вокруг покупок, а вокруг ценностей: осознанности, гармонии с природой и стремления к лучшей версии себя.
+                            </p>
+                            <p>
+                                С нами выгодно вдвойне: вы получаете не только эталонное качество с Алтая, но и возможность выиграть путешествие, которое перевернет ваш внутренний мир.
+                            </p>
+                        </div>
+                    </div>
 
-                {/* Altai Icon positioned absolutely */}
-                <div className="hidden lg:block absolute top-[99px] right-[160px] flex-shrink-0">
-                    <img
-                        src={altaiIcon}
-                        alt="Altai Icon"
-                        style={{ width: '370px', height: '370px' }}
-                        className="object-contain"
-                    />
-                </div>
-
-                {/* Mobile version of icon */}
-                <div className="lg:hidden mt-10 w-full flex justify-center">
-                    <img
-                        src={altaiIcon}
-                        alt="Altai Icon"
-                        className="w-[200px] h-[200px] object-contain"
-                    />
+                    {/* Altai Icon positioned relative to flex on desktop, centered on mobile */}
+                    <div className="w-full lg:w-auto mt-10 lg:mt-[99px] flex justify-center lg:block lg:flex-shrink-0">
+                        <img
+                            src={altaiIcon}
+                            alt="Altai Icon"
+                            className="w-[200px] h-[200px] lg:w-[370px] lg:h-[370px] object-contain"
+                        />
+                    </div>
                 </div>
 
                 <div className="mt-[56px] w-full flex justify-center">
@@ -163,7 +157,7 @@ export default function TourPage() {
                 </h1>
 
                 <div
-                    className="mt-[48px] w-full max-w-[1600px] min-h-[308px] rounded-[32px] self-center flex flex-col relative"
+                    className="mt-[32px] md:mt-[48px] w-full max-w-[1600px] rounded-[24px] md:rounded-[32px] self-center flex flex-col relative"
                     style={{
                         border: '0.7px solid rgba(215, 181, 109, 1)',
                         boxShadow: '0px 0px 10px 0px rgba(215, 181, 109, 1)',
@@ -172,10 +166,10 @@ export default function TourPage() {
                     }}
                 >
                     <div
-                        className="mt-[30px] ml-[42px] font-bold text-left"
+                        className="mt-[20px] md:mt-[30px] ml-[20px] md:ml-[42px] font-bold text-left"
                         style={{
                             fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
-                            fontSize: '32px',
+                            fontSize: 'clamp(1.5rem, 3vw, 32px)',
                             color: 'rgba(215, 181, 109, 1)'
                         }}
                     >
@@ -183,17 +177,17 @@ export default function TourPage() {
                     </div>
 
                     <div
-                        className="mt-[18px] mx-[31px] h-[1.5px]"
+                        className="mt-[15px] md:mt-[18px] mx-[15px] md:mx-[31px] h-[1.5px]"
                         style={{
                             background: 'rgba(237, 209, 150, 1)'
                         }}
                     />
 
                     <div
-                        className="mt-[28px] ml-[42px] mr-[42px] mb-[30px] text-left font-normal flex flex-col gap-2"
+                        className="mt-[20px] md:mt-[28px] ml-[20px] md:ml-[42px] mr-[20px] md:mr-[42px] mb-[20px] md:mb-[30px] text-left font-normal flex flex-col gap-3 md:gap-2"
                         style={{
                             fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
-                            fontSize: '20px',
+                            fontSize: 'clamp(0.9rem, 1.5vw, 20px)',
                             lineHeight: '120%',
                             color: 'rgba(237, 209, 150, 1)'
                         }}
@@ -232,7 +226,8 @@ export default function TourPage() {
                         width: '307px',
                         height: '82px',
                         background: 'linear-gradient(90deg, #7C622B 0%, #FFD170 100%)',
-                        padding: '18px 24px'
+                        padding: '18px 24px',
+                        cursor: 'pointer'
                     }}
                 >
                     <img
@@ -271,13 +266,13 @@ export default function TourPage() {
 
                 {/* Carousel Block */}
                 <div
-                    className="mt-[56px] w-full max-w-[1600px] h-[780px] rounded-[24px] self-center flex flex-col items-center justify-center relative overflow-hidden"
+                    className="mt-[32px] md:mt-[56px] w-full max-w-[1600px] h-[450px] md:h-[780px] rounded-[24px] self-center flex flex-col items-center justify-center relative overflow-hidden"
                     style={{
                         border: '1px solid rgba(215, 181, 109, 1)',
                         boxShadow: '0px 0px 10px 0px rgba(215, 181, 109, 1)',
                         background: 'transparent',
                         backdropFilter: 'blur(4px)',
-                        padding: '55px'
+                        padding: '20px md:55px'
                     }}
                 >
                     {/* Carousel Area */}
@@ -285,18 +280,18 @@ export default function TourPage() {
                         {/* Navigation Arrows */}
                         <button
                             onClick={handlePrev}
-                            className="absolute left-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
+                            className="absolute left-[10px] md:left-[0px] top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[56px] md:h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
                             aria-label="Previous slide"
                         >
-                            <ChevronLeft className="w-8 h-8 text-black" />
+                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-black" />
                         </button>
 
                         <button
                             onClick={handleNext}
-                            className="absolute right-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
+                            className="absolute right-[10px] md:right-[0px] top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[56px] md:h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
                             aria-label="Next slide"
                         >
-                            <ChevronRight className="w-8 h-8 text-black" />
+                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-black" />
                         </button>
 
                         <div className="relative w-full h-full flex items-center justify-center overflow-visible">
@@ -307,26 +302,40 @@ export default function TourPage() {
 
                                 const position = diff;
                                 const isActive = position === 0;
-                                const isSide = Math.abs(position) === 1;
 
-                                const scale = isActive ? 1 : 1 - Math.abs(position) * 0.15;
-                                const translateX = position * 280; // Distance between cards
+                                // Carousel adaptive logic
+                                const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+                                const cardWidth = isMobile ? 200 : 400;
+                                const cardHeight = isMobile ? 300 : 600;
+                                const xOffset = isMobile ? 65 : 220; // Reduced desktop offset a bit to fit more cards
+
+                                const scale = isActive ? 1 : 1 - Math.abs(position) * (isMobile ? 0.12 : 0.15);
+                                const translateX = position * xOffset;
                                 const zIndex = 30 - Math.abs(position) * 10;
-                                const opacity = Math.abs(position) <= 2 ? (isActive ? 1 : 0.7) : 0;
-                                const blur = isActive ? '0px' : (isSide ? '4px' : '10px');
+
+                                // Show 3 cards on each side (total 7)
+                                const opacity = Math.abs(position) <= 3 ? (isActive ? 1 : 0.7 - Math.abs(position) * 0.15) : 0;
+
+                                let blur = '0px';
+                                if (!isActive) {
+                                    if (Math.abs(position) === 1) blur = '2px';
+                                    else if (Math.abs(position) === 2) blur = '6px';
+                                    else blur = '10px';
+                                }
 
                                 return (
                                     <div
                                         key={i}
                                         className="absolute transition-all duration-500 ease-out flex items-center justify-center"
                                         style={{
-                                            width: '400px',
-                                            height: '600px',
+                                            width: `${cardWidth}px`,
+                                            height: `${cardHeight}px`,
                                             transform: `translateX(${translateX}px) scale(${scale})`,
                                             zIndex,
-                                            opacity,
+                                            opacity: opacity > 0 ? opacity : 0,
                                             filter: `blur(${blur})`,
-                                            pointerEvents: isActive ? 'auto' : 'none'
+                                            pointerEvents: isActive ? 'auto' : 'none',
+                                            display: Math.abs(position) > 3 ? 'none' : 'flex'
                                         }}
                                     >
                                         <div
@@ -335,7 +344,7 @@ export default function TourPage() {
                                             <img
                                                 src={img}
                                                 alt={`Card ${i + 61}`}
-                                                className={`w-full h-full object-contain select-none transition-all duration-500 ${isActive ? 'scale-105 drop-shadow-[0_0_15px_rgba(255,209,112,0.8)]' : ''}`}
+                                                className={`w-full h-full object-contain select-none transition-all duration-500 ${isActive ? 'scale-110 drop-shadow-[0_0_15px_rgba(255,209,112,0.8)]' : ''}`}
                                                 draggable={false}
                                             />
                                         </div>
