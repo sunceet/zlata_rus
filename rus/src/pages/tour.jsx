@@ -44,10 +44,43 @@ const carouselImages = [
 
 export default function TourPage() {
     const [activeIndex, setActiveIndex] = React.useState(0);
+    const [isTransitioning, setIsTransitioning] = React.useState(false);
     const total = carouselImages.length;
 
-    const handlePrev = () => setActiveIndex((prev) => (prev - 1 + total) % total);
-    const handleNext = () => setActiveIndex((prev) => (prev + 1) % total);
+    const handlePrev = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setActiveIndex((prev) => (prev - 1 + total) % total);
+        setTimeout(() => setIsTransitioning(false), 500); // Lock duration matching transition
+    };
+
+    const handleNext = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setActiveIndex((prev) => (prev + 1) % total);
+        setTimeout(() => setIsTransitioning(false), 500);
+    };
+
+    // Mobile Swipe Handling
+    const [touchStart, setTouchStart] = React.useState(null);
+    const [touchEnd, setTouchEnd] = React.useState(null);
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+        if (isLeftSwipe) handleNext();
+        if (isRightSwipe) handlePrev();
+    };
 
     return (
         <div
@@ -274,24 +307,27 @@ export default function TourPage() {
                         backdropFilter: 'blur(4px)',
                         padding: '20px md:55px'
                     }}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                 >
                     {/* Carousel Area */}
                     <div className="relative w-full h-full flex items-center justify-center overflow-visible">
-                        {/* Navigation Arrows */}
+                        {/* Navigation Arrows - Hidden on mobile and tablet */}
                         <button
                             onClick={handlePrev}
-                            className="absolute left-[10px] md:left-[0px] top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[56px] md:h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
+                            className="hidden lg:flex absolute left-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
                             aria-label="Previous slide"
                         >
-                            <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-black" />
+                            <ChevronLeft className="w-8 h-8 text-black" />
                         </button>
 
                         <button
                             onClick={handleNext}
-                            className="absolute right-[10px] md:right-[0px] top-1/2 -translate-y-1/2 w-[40px] h-[40px] md:w-[56px] md:h-[56px] rounded-full bg-white backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg"
+                            className="hidden lg:flex absolute right-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
                             aria-label="Next slide"
                         >
-                            <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-black" />
+                            <ChevronRight className="w-8 h-8 text-black" />
                         </button>
 
                         <div className="relative w-full h-full flex items-center justify-center overflow-visible">
@@ -305,37 +341,60 @@ export default function TourPage() {
 
                                 // Carousel adaptive logic
                                 const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-                                const cardWidth = isMobile ? 200 : 400;
-                                const cardHeight = isMobile ? 300 : 600;
-                                const xOffset = isMobile ? 65 : 220; // Reduced desktop offset a bit to fit more cards
+                                const baseWidth = isMobile ? 220 : 400;
+                                const baseHeight = isMobile ? 330 : 600;
 
-                                const scale = isActive ? 1 : 1 - Math.abs(position) * (isMobile ? 0.12 : 0.15);
-                                const translateX = position * xOffset;
-                                const zIndex = 30 - Math.abs(position) * 10;
+                                const positionAbs = Math.abs(position);
+                                const isVisible = positionAbs <= 3;
 
-                                // Show 3 cards on each side (total 7)
-                                const opacity = Math.abs(position) <= 3 ? (isActive ? 1 : 0.7 - Math.abs(position) * 0.15) : 0;
+                                // Precise Offsets (Desktop)
+                                let translateX = 0;
+                                let hReduction = 0;
+                                if (!isMobile) {
+                                    if (positionAbs === 1) translateX = 200;
+                                    else if (positionAbs === 2) translateX = 200 + 205;
+                                    else if (positionAbs === 3) translateX = 200 + 205 + 130;
+
+                                    if (position < 0) translateX = -translateX;
+
+                                    hReduction = positionAbs * 66;
+                                } else {
+                                    // Mobile Fallback - simpler peeking
+                                    translateX = position * (baseWidth * 0.4);
+                                    hReduction = positionAbs * 30;
+                                }
+
+                                const cardWidth = baseWidth;
+                                const cardHeight = baseHeight - hReduction;
+
+                                // Vertical Offset (33px down per level)
+                                const yOffset = positionAbs * 1;
+
+                                const zIndex = 30 - positionAbs * 10;
+                                const opacity = isVisible ? 1 : 0;
 
                                 let blur = '0px';
                                 if (!isActive) {
                                     if (Math.abs(position) === 1) blur = '2px';
-                                    else if (Math.abs(position) === 2) blur = '6px';
+                                    else if (Math.abs(position) === 2) blur = '5px';
                                     else blur = '10px';
                                 }
 
                                 return (
                                     <div
                                         key={i}
+                                        onClick={() => !isActive && !isTransitioning && setActiveIndex(i)}
                                         className="absolute transition-all duration-500 ease-out flex items-center justify-center"
                                         style={{
                                             width: `${cardWidth}px`,
                                             height: `${cardHeight}px`,
-                                            transform: `translateX(${translateX}px) scale(${scale})`,
+                                            transform: `translate(${translateX}px, ${yOffset}px)`,
                                             zIndex,
-                                            opacity: opacity > 0 ? opacity : 0,
+                                            opacity,
                                             filter: `blur(${blur})`,
-                                            pointerEvents: isActive ? 'auto' : 'none',
-                                            display: Math.abs(position) > 3 ? 'none' : 'flex'
+                                            pointerEvents: isVisible ? 'auto' : 'none',
+                                            cursor: !isActive && isVisible ? 'pointer' : 'default',
+                                            visibility: isVisible ? 'visible' : 'hidden'
                                         }}
                                     >
                                         <div
