@@ -2,6 +2,7 @@ import React from 'react';
 import bgYellow from '@/assets/bg-yellow.svg';
 import poertyImg from '@/assets/poerty_img.png';
 import vector2Svg from '@/assets/Vector2.svg';
+import vectorMb from '@/assets/VectorMb.svg';
 import heart2Icon from '@/assets/heart2.svg';
 import tgIcon from '@/assets/tg_icon.svg';
 import vkIcon from '@/assets/vk.png';
@@ -85,8 +86,9 @@ export default function PoetryPage() {
                     </div>
                 </div>
 
-                <div className="mt-[56px] w-full flex justify-center">
-                    <img src={vector2Svg} alt="Vector ornament" className="w-full object-contain" />
+                <div className="mt-[56px] w-full flex justify-center px-4">
+                    <img src={vector2Svg} alt="Vector ornament" className="hidden lg:block w-full object-contain" />
+                    <img src={vectorMb} alt="Vector ornament mobile" className="block lg:hidden w-full object-contain" />
                 </div>
 
                 <h1
@@ -156,30 +158,28 @@ export default function PoetryPage() {
                 </div>
 
                 {/* Social Bot Links Row */}
-                <div className="mt-[48px] self-center flex flex-col md:flex-row items-center justify-center gap-[24px] md:gap-[54px] w-full">
+                <div className="mt-[48px] self-center flex flex-col md:flex-row items-center justify-center gap-[12px] md:gap-[54px] w-full">
                     <a
                         href="https://vk.com/zlatarus"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity cursor-pointer"
+                        className="flex items-center justify-center gap-[12px] md:gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity cursor-pointer w-[220px] h-[60px] lg:w-[307px] lg:h-[82px]"
                         style={{
-                            width: '307px',
-                            height: '82px',
                             background: 'linear-gradient(90deg, #1C3B3E 0%, #1C3B3E 100%)',
-                            padding: '18px 24px',
+                            padding: '12px 16px',
                             textDecoration: 'none'
                         }}
                     >
                         <img
                             src={vkIcon}
                             alt="VK Icon"
-                            style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                            className="w-[28px] h-[28px] lg:w-[40px] lg:h-[40px] object-contain"
                         />
                         <span
+                            className="text-[18px] lg:text-[24px]"
                             style={{
                                 fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
                                 fontWeight: '700',
-                                fontSize: '24px',
                                 color: 'white'
                             }}
                         >
@@ -191,25 +191,23 @@ export default function PoetryPage() {
                         href="https://instagram.com/zlatarus"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity cursor-pointer"
+                        className="flex items-center justify-center gap-[12px] md:gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity cursor-pointer w-[220px] h-[60px] lg:w-[307px] lg:h-[82px]"
                         style={{
-                            width: '307px',
-                            height: '82px',
                             background: 'linear-gradient(90deg, #1C3B3E 0%, #1C3B3E 100%)',
-                            padding: '18px 24px',
+                            padding: '12px 16px',
                             textDecoration: 'none'
                         }}
                     >
                         <img
                             src={instIcon}
                             alt="Instagram Icon"
-                            style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                            className="w-[28px] h-[28px] lg:w-[40px] lg:h-[40px] object-contain"
                         />
                         <span
+                            className="text-[18px] lg:text-[24px]"
                             style={{
                                 fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
                                 fontWeight: '700',
-                                fontSize: '24px',
                                 color: 'white'
                             }}
                         >
@@ -218,12 +216,13 @@ export default function PoetryPage() {
                     </a>
                 </div>
 
-                <div className="mt-[54px] w-full flex justify-center">
-                    <img src={vector2Svg} alt="Vector ornament 2" className="w-full object-contain" />
+                <div className="mt-[54px] w-full flex justify-center px-4">
+                    <img src={vector2Svg} alt="Vector ornament 2" className="hidden lg:block w-full object-contain" />
+                    <img src={vectorMb} alt="Vector ornament 2 mobile" className="block lg:hidden w-full object-contain" />
                 </div>
 
                 {/* Final Section with Images and Text */}
-                <div className="mt-[56px] w-full flex flex-col lg:flex-row items-center lg:items-start justify-center lg:gap-[118px] relative">
+                <div className="mt-[56px] w-full flex flex-col lg:flex-row items-center lg:items-end justify-center lg:gap-[118px] relative">
                     {/* Left Column Group */}
                     <div className="flex flex-col w-full lg:w-auto items-center lg:items-start flex-shrink-1">
                         <div
@@ -264,7 +263,7 @@ export default function PoetryPage() {
                         <img
                             src={poertyImg3}
                             alt="Poetry Large View"
-                            className="mt-[40px] lg:mt-[56px] mx-auto lg:mx-0 object-cover w-[90%] lg:w-[776px] flex-shrink-1"
+                            className="mt-[40px] mx-auto lg:mx-0 object-cover w-[90%] lg:w-[776px] flex-shrink-1"
                             style={{
                                 height: 'auto',
                                 aspectRatio: '776/780',

@@ -2,6 +2,7 @@ import React from 'react';
 import bgGreen from '@/assets/bg-green.svg';
 import tourHeader from '@/assets/tour.png';
 import vectorSvg from '@/assets/Vector.svg';
+import vectorGmb from '@/assets/VectorGMB.svg';
 import altaiIcon from '@/assets/altai_icon.svg';
 import tgIcon from '@/assets/tg_icon.svg';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -172,8 +173,9 @@ export default function TourPage() {
                     </div>
                 </div>
 
-                <div className="mt-[56px] w-full flex justify-center">
-                    <img src={vectorSvg} alt="Vector ornament" className="w-full object-contain" />
+                <div className="mt-[56px] w-full flex justify-center px-4">
+                    <img src={vectorSvg} alt="Vector ornament" className="hidden lg:block w-full object-contain" />
+                    <img src={vectorGmb} alt="Vector ornament mobile" className="block lg:hidden w-full object-contain" />
                 </div>
 
                 <h1
@@ -254,25 +256,23 @@ export default function TourPage() {
 
                 {/* Telegram Bot Button */}
                 <button
-                    className="mt-[48px] self-center flex items-center justify-center gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity"
+                    className="mt-[48px] self-center flex items-center justify-center gap-[12px] md:gap-[24px] rounded-[18px] hover:opacity-90 transition-opacity w-[220px] h-[60px] lg:w-[307px] lg:h-[82px]"
                     style={{
-                        width: '307px',
-                        height: '82px',
                         background: 'linear-gradient(90deg, #7C622B 0%, #FFD170 100%)',
-                        padding: '18px 24px',
+                        padding: '12px 16px', // Mobile base padding
                         cursor: 'pointer'
                     }}
                 >
                     <img
                         src={tgIcon}
                         alt="Telegram Icon"
-                        style={{ width: '32px', height: '28px' }}
+                        className="w-[20px] h-[18px] lg:w-[32px] lg:h-[28px]"
                     />
                     <span
+                        className="text-[20px] lg:text-[32px]"
                         style={{
                             fontFamily: 'Lato, -apple-system, Roboto, Helvetica, sans-serif',
                             fontWeight: '700',
-                            fontSize: '32px',
                             color: 'white'
                         }}
                     >
@@ -280,8 +280,9 @@ export default function TourPage() {
                     </span>
                 </button>
 
-                <div className="mt-[54px] w-full flex justify-center">
-                    <img src={vectorSvg} alt="Vector ornament" className="w-full object-contain" />
+                <div className="mt-[54px] w-full flex justify-center px-4">
+                    <img src={vectorSvg} alt="Vector ornament" className="hidden lg:block w-full object-contain" />
+                    <img src={vectorGmb} alt="Vector ornament mobile" className="block lg:hidden w-full object-contain" />
                 </div>
 
                 <h1
@@ -316,7 +317,7 @@ export default function TourPage() {
                         {/* Navigation Arrows - Hidden on mobile and tablet */}
                         <button
                             onClick={handlePrev}
-                            className="hidden lg:flex absolute left-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
+                            className="hidden lg:flex absolute left-[20px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
                             aria-label="Previous slide"
                         >
                             <ChevronLeft className="w-8 h-8 text-black" />
@@ -324,7 +325,7 @@ export default function TourPage() {
 
                         <button
                             onClick={handleNext}
-                            className="hidden lg:flex absolute right-[0px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
+                            className="hidden lg:flex absolute right-[20px] top-1/2 -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white backdrop-blur-md items-center justify-center hover:bg-white/40 transition-colors z-50 shadow-lg cursor-pointer"
                             aria-label="Next slide"
                         >
                             <ChevronRight className="w-8 h-8 text-black" />
