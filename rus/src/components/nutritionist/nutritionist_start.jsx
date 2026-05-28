@@ -5,7 +5,7 @@ import bgGreen from "@/assets/bg-green.svg";
 import woman from "@/assets/woman.png";
 import telegram from "@/assets/telegram.png";
 import instagram from "@/assets/instagram.png";
-import vector from "@/assets/vector.svg";
+import vector from "@/assets/Vector.svg";
 
 export default function Nutritionist() {
   return (
