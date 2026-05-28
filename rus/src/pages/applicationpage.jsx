@@ -7,7 +7,7 @@ import bgYellow from "@/assets/bg-yellow.svg";
 import heart from "@/assets/heart.svg";
 import heart2 from "@/assets/heart2.svg";
 import vector from "@/assets/Vector.svg";
-import vector2 from "@/assets/vector2.svg";
+import vector2 from "@/assets/Vector2.svg";
 
 // Products
 import flourLinen from "@/assets/flour-linen (2).png";
