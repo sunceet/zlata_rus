@@ -6,7 +6,7 @@ import building from "@/assets/Building.svg";
 import mail from "@/assets/mail.png";
 import mapPin from "@/assets/map_pin.png";
 import phone from "@/assets/Phone.svg";
-import vector2 from "@/assets/vector2.svg";
+import vector2 from "@/assets/Vector2.svg";
 
 export default function Contacts() {
   const cards = [
